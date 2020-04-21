@@ -1,0 +1,36 @@
+.img-wrap {
+    width: 68%;
+    height: 80%;
+    margin: 0 auto;
+    position: relative;
+}
+.img-wrap img {
+    width: 100%;
+}
+.backto{
+    position: absolute;
+    bottom: 20%;
+    left: 23%;
+    width: 46%;
+    height: 16%;
+    background: url("https://gogoarmy-1256943690.cos.ap-beijing.myqcloud.com/img/util/404/404_btn.png");
+}
+.backto img{
+    width: 100%;
+    position: relative;
+}
+.back-url{
+    color: #ffffff;
+    font-size: 3vw;
+    font-weight: bold;
+    position: absolute;
+    top: 76%;
+    left: 23%;
+    width: 100%;
+}
+.back-url a{
+    color: white;
+}
+.back-url a:hover{
+    color: #ffffff;
+}

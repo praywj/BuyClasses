@@ -1,0 +1,124 @@
+
+hr{
+	 /*margin: 60px 0;*/
+ }
+.list-page{
+	max-width: 1500px;
+	margin-top: -6%;
+    width: 98.7%;
+}
+.nav-tabs li a{
+	padding: 10px 20px;
+}
+.page_one{
+	margin: 30px 0;
+}
+.contain{
+	border-radius:8px;
+	border: 1px solid #ccc ;
+	box-shadow: 2px 5px 5px 2px #ccc;
+	background: #fff;
+	margin-bottom: 8px;
+	padding-top: 10px;
+	padding-right: 32px;
+	padding-bottom: 10px;
+}
+
+.live-list h3,.lecture-list h3{
+	/*padding-left: 30px;*/
+	font-weight: bold;
+	margin-bottom: 10px;
+}
+.t-img{
+	/*margin: 10px;*/
+	width: 280px;
+	height: 150px;
+}
+.t-img img{
+	width: 100%;
+}
+.t-info{
+	padding: 10px 0;
+	margin-left: 20px;
+	line-height: 100%;
+}
+.card-title a{
+	/*color: #000;*/
+	color: #1c1f21;
+	font-family: "Microsoft YaHei","Helvetica Neue","微软雅黑",Tahoma,Arial,sans-serif;
+}
+.card-text{
+	padding-left: 10px;
+	font-size: 15px;
+	color: #666;
+	line-height: 30px;
+}
+.lecture-bar{
+	float: right;
+	margin-top: -5px;
+}
+.lecture-list{
+	/*margin-top: 30px;*/
+}
+.lecture-list section{
+	margin-bottom: 25px;
+}
+.lec-cont-list{
+	display: inline-block;
+	width: 94%;
+}
+.lec-content{
+	overflow-y: auto;
+	max-height: 530px;
+	margin-top: 2em;
+	width: 107%;
+}
+.lec-content::-webkit-scrollbar {
+    width: 10px;
+    height: 4px;
+	border-radius: 5px;
+}
+.lec-content::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+    -webkit-box-shadow: inset 0 0 5px rgba(0,0,0,0.2);
+	background: #cccccc;
+}
+
+.lec-content::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 5px rgba(0,0,0,0.2);
+    border-radius: 0;
+    background: rgba(0,0,0,0.1);
+}
+.lec-list{
+	width: 100%;
+}
+.row{
+	margin-left: -5px;
+	background: none;
+	margin-top: 5px;
+}
+.lecture_list_title{
+	width:100%;
+	height:50px;
+	margin-top: 10%;
+}
+.lecture_list_title  li{
+	font-size: 1.3rem;
+	line-height: 2rem;
+}
+.qr_code{
+    float: right;
+}
+.qr_code img{
+    width: 40%;
+    height:40%;
+    clear: both;
+    display: block;
+    margin:auto;
+}
+.qr_code span{
+    display: block;
+    text-align: center;
+    font-weight: bold;
+    font-size: 0.8rem;
+}

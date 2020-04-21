@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block link %}
+    <link href="{{STATIC_URL}}css/website/my_course.css" rel="stylesheet" type="text/css" media="all" />
+{% endblock %}
+{% block content %}
+    <div class="m-contain">
+        {% for course in my_course %}
+        <div class="course-info">
+            <h4>{{ course.name }}</h4>
+            <div class="course-intro">
+                <div class="course-img">
+                    <img src="{{ course.image }}"/>
+                </div>
+                <div class="course-title">
+                    {{ course.desc }}
+                </div>
+                <div class="course-btn">
+                    <a href="/live/live_course/{{ course.id }}/">进入课表</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+{% endblock %}

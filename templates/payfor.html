@@ -1,0 +1,85 @@
+{% extends "base.html" %}
+
+{% block link %}
+<link href="{{STATIC_URL}}css/website/payfor.css" rel="stylesheet">
+{% endblock%}
+
+{% block content %}
+
+<div class="payfor">
+    <div class="cmoney">
+        <img src="{{STATIC_URL}}img/website/weiyinaccount.jpg" alt="">
+        收银台
+    </div>
+    <!--<div class="grad1"></div>-->
+    <!--<div class="time">-->
+        <!--请在<div id="timer" style="color:red;display:inline"></div>内支付订单，否则订单将会关闭-->
+    <!--</div>-->
+    <div class="grad1"></div>
+    <div class="info">
+        <h4>订单编号：{{order_id}}</h4>
+        <h4>订单总额：<div style="color:red;display:inline" class="total">{{total_price}}</div>元</h4>
+        <h4>订单详情：</h4>
+        <div class="total_class" id="total_class">
+            {% for person  in order_detail %}
+            <span> {{person}} </span>
+            {% endfor %}
+
+        </div>
+    </div>
+<<<<<<< HEAD
+
+=======
+    <div class="grad1"></div>
+    <div class="info">
+        <h4>支付方式:</h4>
+        <ul class="way">
+            <li><input type="button" id="checked" onclick="javascript:change('checked');select_pay('{{order_id}}');"></li>
+            <li><input type="button" id="unchecked" onclick="javascript:change('onchecked');"></li>
+        </ul>
+        <ul class="qrcode">
+            <li class="code1" ><img src="" alt="" id="weixin_pay" ></li>
+            <!--<li class="code1"><img src="" alt=""></li>-->
+            <li ><img src="{{STATIC_URL}}img/website/weixin1.jpg" alt="" class="code2"></li>
+            <li ><img src="{{STATIC_URL}}img/website/weixin2.jpg" alt="" class="code3"></li>
+        </ul>
+    </div>
+</div>
+>>>>>>> master
+{% endblock %}
+{% block script %}
+    <script src="{{STATIC_URL}}js/website/payment.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function(){
+        window.setInterval("is_pay()",2000); //间隔多少秒去触发ajax
+    });
+    function is_pay() {
+        $.ajax({
+            type: "GET",
+            url: "/payment/get_order_status/",
+            datatype: JSON,
+            async:true,
+            data: {
+                "out_trade_no":'{{order_id}}',
+            },
+            success: function( result ) {
+                if (result.success){
+                    window.location.href = result.redirect_url;
+                }else{
+                    console.log(result.error_msg);
+                }
+            }
+        });
+    }
+
+    function change(id) {
+        if(id == 'checked'){
+            document.getElementById("checked").style.display = 'none';
+            document.getElementById("unchecked").style.display = 'block';
+        }else{
+            document.getElementById("checked").style.display = 'block';
+            document.getElementById("unchecked").style.display = 'none';
+        }
+    }
+</script>
+{% endblock %}

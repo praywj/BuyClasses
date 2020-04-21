@@ -1,0 +1,82 @@
+{% extends "base.html" %}
+{% block link %}
+    <link href="{{STATIC_URL}}css/website/live_list.css" rel="stylesheet" type="text/css" media="all" />
+{% endblock %}
+{% block content %}
+<div class="container con_tel">
+
+<div class="list-page">
+    <div class="lecture_list_title">
+        <ol class="breadcrumb ">
+            <li><a href="/">首页</a></li>
+            <li><a href="/my_course/">我的课程</a></li>
+            <li class="active">{{ room_info.name }}</li>
+        </ol>
+    </div>
+
+    <div class="page_one tab-pane">
+        {% if casting_lecture %}
+        <div class="live-list">
+            <h3>正在直播</h3>
+            <section>
+                <div class="contain py-3">
+                    <div class="card shadow p-3 mb-5 bg-white rounded">
+                        <div class="row">
+                            <div class="col-sm-2 t-img">
+                                <img src="{{ casting_lecture.image }}" class="w-100">
+                            </div>
+                            <div class="col-sm-4 px-3 t-info">
+                                <div class="card-block px-3">
+                                    <h4 class="card-title"><a href="/live/live_lecture/{{ casting_lecture.id }}" >{{ casting_lecture.title }}</a></h4>
+                                    <p class="card-text">{{ casting_lecture.desc }}</p>
+                                    <p><a href="">下载讲义</a></p>
+                                </div>
+                            </div>
+                            <div class="col-sm-4 qr_code">
+                                <img src="https://gogoarmy-1256943690.cos.ap-beijing.myqcloud.com/img/qr_pics/miniqrcode.jpg" alt="">
+                                <span>请扫码获取本节作业</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+        <hr>
+        {% endif %}
+        <div class="lecture-list">
+            <div class="lecture">
+                <h3>录播列表</h3>
+                <div class="lec-content">
+                    <div class="lec-cont-list">
+                        {% for lecture in live_lecture_list %}
+                        <section>
+                            <div class="contain py-3 lec-list">
+                                <div class="card shadow p-3 mb-5 bg-white rounded">
+                                    <div class="row">
+                                        <div class="col-sm-2 t-img">
+                                            <img src="{{ lecture.image }}" class="w-100">
+                                        </div>
+                                        <div class="col-sm-6 px-3 t-info">
+                                            <div class="card-block px-3">
+                                                <h4 class="card-title"><a href="/live/lecture_record/{{ lecture.id }}">{{ lecture.title }}</a></h4>
+                                                <p class="card-text">{{ lecture.desc }}</p>
+                                                <p><a href="">下载讲义</a></p>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-4 qr_code">
+                                            <img src="https://gogoarmy-1256943690.cos.ap-beijing.myqcloud.com/img/qr_pics/miniqrcode.jpg" alt="">
+                                            <span>请扫码获取本节作业</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+{% endblock %}

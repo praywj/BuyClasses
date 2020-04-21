@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>智人在线教育</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no">
+<meta name="keywords" content="" />
+<link href="{{STATIC_URL}}css/website/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+<link rel="stylesheet" href="{{STATIC_URL}}css/website/style.css" type="text/css" media="all" />
+<link href="{{STATIC_URL}}fonts/website/font-awesome-4.7.0/css/font-awesome.css" rel="stylesheet">
+{% block link %}{% endblock %}
+</head>
+<body>
+	<div class="banner jarallax fixednav">
+
+       <div class="logo">
+            <div class="logo-head" >
+              <a href="/" >  <img src="https://gogoarmy-1256943690.cos.ap-beijing.myqcloud.com/img/logo/r000fff_fff.png"/> </a>
+
+            </div>
+        </div>
+		<div class="nav-container">
+			<div class="w3-header-bottom">
+				<div class="top-nav top-btn">
+					<nav class="navbar navbar-default">
+						<div class="navbar-header">
+							<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+								<span class="sr-only">Toggle navigation</span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+							</button>
+						</div>
+						<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+							<ul class="nav navbar-nav">
+								<li class="first-list" id="first-list"><a class="active" href="/">首页</a></li>
+								{% if base_info.is_login %}
+									<li id="my-course"><a href="/my_course/">个人中心</a></li>
+								{% else %}
+									<li><a href="/#information">课程介绍</a></li>
+									<li><a href="/#advantages">课程优势</a></li>
+									<li><a href="/#teachers">教师团队</a></li>
+									<li><a href="/#range">排行榜</a></li>
+									<li><a href="/about_us/">关于我们</a></li>
+								{% endif %}
+							</ul>
+							<div class="clearfix"> </div>
+						</div>
+					</nav>
+                    {% if base_info.is_login %}
+                        <div class="agileinfo-social-grids is-login">
+                            <div class="btn-group user-bar">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" >
+                                        {{ base_info.username }}
+                                <span class="caret"></span>
+                                </a>
+                                <ul class="dropdown-menu dd-menu">
+                                    <li><a href="/my_course/">我的课程</a></li>
+                                    <li><a href="/auth/logout/">注销</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    {% else %}
+                        <div class="agileinfo-social-grids">
+                            <ul id="no-login">
+                                <li><a href="/auth/web_login/" class="btn" id="login">登录</a></li>
+                                <li class="divide">|</li>
+                                <li><a href="/auth/web_register/" class="btn" id="register">注册</a></li>
+                            </ul>
+                             <div class="clearfix"></div>
+                         </div>
+                    {% endif %}
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="container">
+		{% block content %}{% endblock %}
+	</div>
+	<footer id="about">
+		<div class="w3ls-footer-grids">
+			<div class="container footer">
+				<div class="ourinfo">
+					<div class="col-md-4 w3l-footer one" >
+						<h3>关于我们：</h3>
+						<ul>
+							<li><a href="/about_us/"><i class="fa fa-building " ></i>	公司简介</a></li>
+							<li><a href="#"><i class="fa fa-users " ></i>	我们的团队</a></li>
+							<li><a href="#"><i class="fa fa-copyright " ></i>	版权声明</a></li>
+						</ul>
+
+						<!--<h3>  我们是考试过关的“火箭发射器”！利用大数据、云计算等技术，我们动态分析每一位学员的学习情况，拥有自主知识产权的计算机与网络软件先进技术，具有多元终端的智能服务平台，让学员足不出户，即可尽情畅享高清视频课程、专属班主任学习监督、专家答疑等核心高质服务。</h3>-->
+						<div class="clearfix"></div>
+					</div>
+					<div class="col-md-4 w3l-footer two" >
+						<h3>社交媒体:</h3>
+						<ul>
+							<li><a href="https://weibo.com/u/6264896083" title="进入我们的微博"><i class="fa fa-weibo" ></i>微博：北京智人在线</a></li>
+							<li><a href="#" onmouseover="wx_mouseOver()" onmouseout="wx_mouseOut()"><i class="fa fa-weixin"></i>微信公众号：未来匠人</a></li>
+							<li><a href="#" onmouseover="qq_mouseOver()" onmouseout="qq_mouseOut()"><i class="fa fa-qq"></i>QQ：3598843979（北京智人在线）</a></li>
+						</ul>
+
+					</div>
+
+
+					<div class="zz_index_wxgzh_ewm" id="zz_id_index_wxgzh_ewm" style="display: none">
+						<img src="{{STATIC_URL}}img/website/wxgzh_ewm.png" >
+					</div>
+					
+					<div class="zz_index_qq_erw" id="zz_id_index_qq_ewm" style="display: none">
+						<img src="{{STATIC_URL}}img/website/qq_ewm.png">
+					</div>
+
+
+					<div class="col-md-4 w3l-footer three" >
+						<h3>地址:</h3>
+						<ul>
+							<li><i class="fa fa-map-marker"></i><p>北京未来匠人教育科技有限公司</p><div class="clearfix"></div> </li>
+							<li><i class="fa fa-phone"></i><p>客服电话：17090097573</p> <div class="clearfix"></div> </li>
+							<li><i class="fa fa-envelope-o"></i><a href="mailto:info@example.com">icerchill@gogoarmy.com</a> <div class="clearfix"></div></li>
+						</ul>
+					</div>
+					<div class="clearfix"></div>
+				</div>
+			</div>
+		</div>
+
+
+	</footer>
+	<div class="copy-right-grids">
+		<div class="container copy">
+			<div class="copy-left">
+                <p class="footer-gd"><span>Copyright &copy; 2018-2019</span>  <span>wwww.gogoarmy.com All rights reserved.</span> <span>北京未来匠人教育科技有限公司 版权所有</span></p>
+			</div>
+            <div class="icp">
+                <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010802026903">
+                    <p> <img src="{{ STATIC_URL }}img/website/ba-icon.png"/>京公网安备 11010802026903号</p>
+                </a>
+            </div>
+			<div class="clearfix"></div>
+		</div>
+	</div>
+    <script src="https://cdn.bootcss.com/jquery/2.1.4/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.bootcss.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+    <script src="{{STATIC_URL}}js/website/myScript.js"></script>
+
+		<script type="text/javascript">
+
+		function wx_mouseOver() {
+		//	$('#zz_id_index_wxgzh_ewm').fadeIn('slow');
+			var wx_img = document.getElementById("zz_id_index_wxgzh_ewm");
+			wx_img.style.display = "";
+        }
+
+        function wx_mouseOut() {
+		//	$('#zz_id_index_wxgzh_ewm').fadeOut('slow');
+			var wx_img = document.getElementById("zz_id_index_wxgzh_ewm");
+			wx_img.style.display = "none";
+        }
+
+        function qq_mouseOver() {
+			//$('#zz_id_index_qq_ewm').fadeIn('slow');
+			var qq_img = document.getElementById("zz_id_index_qq_ewm");
+			qq_img.style.display = "";
+        }
+
+        function qq_mouseOut() {
+			//$('#zz_id_index_qq_ewm').fadeOut('slow');
+			var qq_img = document.getElementById("zz_id_index_qq_ewm");
+			qq_img.style.display = "none";
+        }
+
+	</script>
+
+	{% block script%}
+
+
+
+	{% endblock %}
+
+</body>
+</html>

@@ -1,0 +1,11 @@
+.form-row{
+    margin-bottom: 15px;
+}
+.form-row .col-7{
+    width: 57%;
+    display: inline-block;
+}
+.form-row .col-3{
+    width: 20%;
+    display: inline-block;
+}

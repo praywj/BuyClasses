@@ -1,0 +1,315 @@
+{% extends "base.html" %}
+{% block link %}
+    <link href="{{STATIC_URL}}css/website/slider.css" rel="stylesheet" type="text/css" media="all" />
+{% endblock %}
+{% block content %}
+	<div class="banner-info">
+        <div id="myCarousel" class="carousel slide" data-ride="carousel">
+            <!--<ol class="carousel-indicators">-->
+                <!--<li data-target="#myCarousel" data-slide-to="0" class="active"></li>-->
+                <!--<li data-target="#myCarousel" data-slide-to="1"></li>-->
+            <!--</ol>-->
+            <div class="carousel-inner">
+                <!--<div class="item active banner1">-->
+                    <!--<img src="https://gogoarmy-1256943690.cos.ap-beijing.myqcloud.com/img/coursecover/banner/banner_chuji%20.png" alt="Second slide">-->
+                <!--</div>-->
+                <div class="item active banner2">
+                    <img src="https://gogoarmy-1256943690.cos.ap-beijing.myqcloud.com/img/coursecover/banner/banner_zhukuai_150ppi%20.png" alt="Second slide">
+                </div>
+            </div>
+            <!--<a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev" >-->
+                <!--<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>-->
+                <!--<span class="sr-only">Previous</span>-->
+            <!--</a>-->
+            <!--<a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">-->
+                <!--<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>-->
+                <!--<span class="sr-only">Next</span>-->
+            <!--</a>-->
+        </div>
+	</div>
+	<div class="welcome" id="information">
+		<div class="container con_index" >
+			<div class="agile-title long-card">
+				<h2>课程介绍</h2>
+            </div>
+            <div class="class-choose">
+                <ul class="nav nav-tabs">
+                        <li class="active"><a data-toggle="tab" href="#home">注册会计师</a></li>
+{#                        <li><a data-toggle="tab" href="#menu1">初级会计职称</a></li>#}
+                </ul>
+                <div class="tab-content">
+                    <div id="home" class="tab-pane fade in active">
+                </div>
+            </div>
+			<div class="w3ls-row content">
+				<div class="row" >
+					{% for course in course_list %}
+					<div class="col-sm-3">
+						<div class="live">
+							<div class="video-card">
+								<div class="live-show">
+									<div class="live-card">
+										<img src="{{ course.image }}" />
+									</div>
+									<div class="class-buy">
+										<a href="/live/liveroom_list/">
+											<button class="buy-btn">点击购买课程</button>
+										</a>
+									</div>
+								</div>
+								<div class="main-card">
+									<div class="user-wrap">
+										<div class="user-name">
+                                            <a>
+											    {{ course.name }}
+                                            </a>
+										</div>
+									</div>
+									<div class="video-wrap">
+                                        <span class="v-title">{{ course.desc }}</span>
+                                        <span class="v-price">￥{{ course.price }}</span>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					{% endfor %}
+				</div>
+			</div>
+		</div>
+        <hr style="border-color: #969696">
+{#            公开课#}
+         <div class="class-choose">
+                <ul class="nav nav-tabs">
+                        <li class="active"><a data-toggle="tab" href="#public">公开课</a></li>
+                </ul>
+                <div class="tab-content">
+                    <div id="public" class="tab-pane fade in active">
+                </div>
+            </div>
+			<div class="w3ls-row content">
+                {% for open in open_lecture %}
+				<div class="row" >
+					<div class="col-sm-3">
+						<div class="live">
+							<div class="video-card">
+								<div class="live-show">
+									<div class="open-card">
+										<img src="https://timgsa.baidu.com/timg?image&quality=80&size=b10000_10000&sec=1533389462&di=3952f5b7079afaa4f0365589d03b069d&src=http://pic.linecg.com/uploads/video_sucai/189063/20150607/189063_1433687827_477.JPG" />
+									</div>
+								</div>
+								<div class="main-card">
+									<div class="user-wrap open-wrap">
+										<div class="user-name">
+                                            <a href="">
+											    {{ open.title }}
+                                            </a>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+                {% endfor %}
+			</div>
+		</div>
+	</div>
+
+	<div class="services" id="advantages">
+		<div class="container">
+			<div class="agile-title">
+				<h2>课程优势</h2>
+			</div>
+			<div class="w3-services-grids">
+				<div class="w3l-services-grid">
+					<div class="w3ls-services-img">
+                        <i class="fa fa-thumbs-up" aria-hidden="true"></i>
+					</div>
+					<div class="agileits-services-info">
+						<h3>班次特色</h3>
+						<p>
+                            <span class="introduction">练学测授课体系</span>
+                            <span  class="introduction">练习—直播—测试学习体系</span>
+                            <span  class="introduction">根据练习数据讲解知识点</span>
+                             <span  class="introduction">助您快速掌握 </span>
+						</p>
+					</div>
+				</div>
+                <div class="service-second">
+                    <div class="w3l-services-grid pratice">
+                        <div class="w3ls-services-img">
+                             <i class="fa fa-cog" aria-hidden="true"></i>
+                        </div>
+                        <div class="agileits-services-info">
+                            <h3>习题练习</h3>
+                            <p>
+                                <span class="introduction">章节练习,名师配卷</span>
+                                 <span  class="introduction">4套模拟整卷,班次专属</span>
+                                <span  class="introduction">结合历年真题和知识难点</span>
+                                 <span  class="introduction">掌控考试脉络</span>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="w3l-services-grid manage">
+                        <div class="w3ls-services-img">
+                            <i class="fa fa-user" aria-hidden="true"></i>
+                        </div>
+                        <div class="agileits-services-info">
+                            <h3>班级管理</h3>
+                            <p>
+                                <span class="introduction">独有班级奖惩机制</span>
+                                <span  class="introduction">每周测评，周周提升</span>
+                                 <span  class="introduction">拒绝掉队</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+			</div>
+		</div>
+	</div>
+	<div class="jarallax specials" >
+		<div class="specials-dot">
+			<div class="container" id="teachers">
+				<div class="agile-title specials-heading long-card">
+					<h2>教师团队</h2>
+				</div>
+                <div class="image-slider" id="slider">
+                    <div class="image-slider-back">
+                    </div>
+                    <div class="image-slider-contents">
+                        <div class="contents-wrapper">
+                            <div class="1 outer">
+                                <div class="spic">
+                                    <img src="https://gogoarmy-1256943690.cos.ap-beijing.myqcloud.com/img/soldiersicon/1.jpg">
+                                </div>
+                                <div class="t-intro">
+                                    <a href="#">《审计》薇薇老师</a>
+                                    <p>就职八大会计师事务所之一，作为负责人参与了多家上市公司的年报审计以及专项审计工作</p>
+                                    <p>教学方式生动、应试且贴近实务。</p>
+                                </div>
+                            </div>
+                            <div class="2 outer">
+                                <div class="spic">
+                                    <img src="https://gogoarmy-1256943690.cos.ap-beijing.myqcloud.com/img/soldiersicon/2.jpg">
+                                </div>
+                                <div class="t-intro">
+                                    <a href="#">《财管》婷婷老师</a>
+                                    <p>多年从事财会领域的教育教学研发工作，并主导过多部会计相关专业辅导类教材的研发</p>
+                                    <p>速记方法多，善于对比公式之间的联系。</p>
+                                </div>
+                            </div>
+                            <div class="3 outer">
+                                <div class="spic">
+                                    <img src="https://gogoarmy-1256943690.cos.ap-beijing.myqcloud.com/img/soldiersicon/3.jpg">
+                                </div>
+                                <div class="t-intro">
+                                    <a href="#">《会计》《税法》文文老师</a>
+                                   <p>北京理工大学硕士，现任国内知名大学副教授，从事会计专业教学近二十年</p>
+                                    <p>风格严谨，逻辑缜密，重点突出。</p>
+                                </div>
+                            </div>
+                            <div class="4 outer">
+                                <div class="spic">
+                                    <img src="https://gogoarmy-1256943690.cos.ap-beijing.myqcloud.com/img/soldiersicon/4.jpg">
+                                </div>
+                                <div class="t-intro">
+                                    <a href="#">《战略》超超老师</a>
+                                    <p>CPA、CMA、CFA等多个证书持证人，理论基础知识扎实，考场实战经验丰富</p>
+                                    <p>幽默风趣，言简意赅，案例丰富，抓住出题人的命题意图。</p>
+                                </div>
+                            </div>
+                            <div class="5 outer">
+                                <div class="spic">
+                                    <img src="https://gogoarmy-1256943690.cos.ap-beijing.myqcloud.com/img/soldiersicon/1.jpg">
+                                </div>
+                                <div class="t-intro">
+                                    <a href="#">《经济法》梅梅老师</a>
+                                    <p>法学专业基础扎实，尤其擅长经济法。长期讲授cpa经济法课程，深厚的理论功底</p>
+                                    <p>将枯燥，抽象的经济法讲解得形象，对考试重难点分析准确，应考实战性强。</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="image-slider-forward"></div>
+                    <div class="preview">
+                        <ul>
+                            <li class="l-active"></li>
+                            <li></li>
+                        </ul>
+                    </div>
+                </div>
+			</div>
+            <div class="phone-image-slider" id="phone-slider">
+                    <div class="phone-slider-contents">
+                        <div class="phone-contents-wrapper">
+                            <div class="1 phone-outer">
+                                <div class="phone-spic">
+                                    <img src="https://gogoarmy-1256943690.cos.ap-beijing.myqcloud.com/img/soldiersicon/1.jpg">
+                                </div>
+                                <div class="phone-t-intro">
+                                    <a href="#">《审计》薇薇老师</a>
+                                    <p>就职八大会计师事务所之一，作为负责人参与了多家上市公司的年报审计以及专项审计工作</p>
+                                    <p>教学方式生动、应试且贴近实务。</p>
+                                </div>
+                            </div>
+                            <div class="2 phone-outer">
+                                <div class="phone-spic">
+                                    <img src="https://gogoarmy-1256943690.cos.ap-beijing.myqcloud.com/img/soldiersicon/2.jpg">
+                                </div>
+                                <div class="phone-t-intro">
+                                    <a href="#">《财管》婷婷老师</a>
+                                    <p>多年从事财会领域的教育教学研发工作，并主导过多部会计相关专业辅导类教材的研发</p>
+                                    <p>速记方法多，善于对比公式之间的联系。</p>
+                                </div>
+                            </div>
+                            <div class="3 phone-outer">
+                                <div class="phone-spic">
+                                    <img src="https://gogoarmy-1256943690.cos.ap-beijing.myqcloud.com/img/soldiersicon/3.jpg">
+                                </div>
+                                <div class="phone-t-intro">
+                                    <a href="#">《会计》《税法》文文老师</a>
+                                   <p>北京理工大学硕士，现任国内知名大学副教授，从事会计专业教学近二十年</p>
+                                    <p>风格严谨，逻辑缜密，重点突出。</p>
+                                </div>
+                            </div>
+                            <div class="4 phone-outer">
+                                <div class="phone-spic">
+                                    <img src="https://gogoarmy-1256943690.cos.ap-beijing.myqcloud.com/img/soldiersicon/4.jpg">
+                                </div>
+                                <div class="phone-t-intro">
+                                    <a href="#">《战略》超超老师</a>
+                                    <p>CPA、CMA、CFA等多个证书持证人，理论基础知识扎实，考场实战经验丰富</p>
+                                    <p>幽默风趣，言简意赅，案例丰富，抓住出题人的命题意图。</p>
+                                </div>
+                            </div>
+                            <div class="5 phone-outer">
+                                <div class="phone-spic">
+                                    <img src="https://gogoarmy-1256943690.cos.ap-beijing.myqcloud.com/img/soldiersicon/1.jpg">
+                                </div>
+                                <div class="phone-t-intro">
+                                    <a href="#">《经济法》梅梅老师</a>
+                                    <p>法学专业基础扎实，尤其擅长经济法。长期讲授cpa经济法课程，深厚的理论功底</p>
+                                    <p>将枯燥，抽象的经济法讲解得形象，对考试重难点分析准确，应考实战性强。</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="phone-preview">
+                        <ul>
+                            <li class="phone-active"></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                        </ul>
+                    </div>
+                </div>
+		</div>
+	</div>
+    </div>
+{% endblock %}
+{% block script %}
+    <script src="{{ STATIC_URL }}js/website/slider.js"></script>
+{% endblock %}
+

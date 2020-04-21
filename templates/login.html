@@ -1,0 +1,90 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+   <div class="user-modal mt-5" id="content" class="height:443px">
+        <form class="form" id="login_form">
+            <div class="image-replace username form-group">
+                <label for="login-phone">手机号:</label>
+                <input type="text" class="form-control" id="login-phone" name="phone" onblur="validatemobile(this.value)"
+                       onkeyup="phoneNumberValidate(this)"  maxlength="11" placeholder="请输入手机号码">
+                <!--<small id="emailHelp" class="form-text text-muted">请填入大陆手机号</small>-->
+            </div>
+            <div class="form-group">
+                <label for="exampleInputPassword1">密码:</label>
+                <input type="password" class="form-control" id="exampleInputPassword1" name="password" onblur="passwordIsNull(this.value)"
+                       onkeyup="passwordValidate(this)"  placeholder="请输入密码">
+            </div>
+            <label for="exampleInputPassword1">验证码:</label>
+            <div class="form-row">
+                <div class="col-xs-8 yz"><input type="text" class="form-control" name="captcha" id="captcha"
+                                                onkeyup="captchaValidate(this)" placeholder="请输入验证码"></div>
+                <div class="col-xs-4 yz-img"><a onclick=getNewCaptcha()><img src={{ captcha_info.captcha_url }}  id="captcha_img"></a></div>
+            </div>
+        </form>
+        <label class="mt-2" id="error_msg"> </label>
+        <button type="submit" class="btn btn-primary form-control sub" style="margin-top: 15px" onclick=login_submit()>登录</button>
+    </div>
+{% endblock %}
+
+{% block script %}
+    <script type="text/javascript">
+
+
+        var hashkey = '&hashkey=' + "{{ captcha_info.key }}";
+        var next_url = '&next=' + "{{ dest_url|safe }}";
+
+        function passwordIsNull(value){
+            if(value == null || value == "" ){
+                error_msg.text('密码不能为空');
+                error_msg.css('color', '#9e2c2c');
+                return false;
+            }
+            error_msg.text("");
+            return true;
+        }
+
+        function phoneNumberValidate(thisObj) {
+            var eventObj = window.event || arguments[0];
+
+            if(eventObj.keyCode == 13) {
+
+                if(validatemobile(thisObj.value)){
+                    var inputEle = document.getElementById("exampleInputPassword1");
+                    inputEle.focus();
+                }
+
+            }
+
+        }
+
+        function passwordValidate(thisObj) {
+            var eventObj = window.event || arguments[0];
+
+            if(eventObj.keyCode == 13){
+                if(passwordIsNull(thisObj.value)){
+
+                    var inputEle = document.getElementById("captcha");
+                    inputEle.focus();
+
+                }
+
+            }
+
+        }
+
+        var lastTime = new Date().getTime();
+
+
+        function captchaValidate(thisObj) {
+            var eventObj = window.event || arguments[0];
+            var thisTime = new Date().getTime();
+            if(eventObj.keyCode == 13 && thisTime-lastTime >= 3000){
+                lastTime = thisTime;
+                login_submit();
+            }
+        }
+
+    </script>
+    <script src="{{STATIC_URL}}js/website/login.js"></script>
+{% endblock %}

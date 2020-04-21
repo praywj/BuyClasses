@@ -1,0 +1,512 @@
+.user-head-info{
+    background: url("../../img/website/mycourse-bg.jpg");
+}
+.user-info{
+    position: relative;
+    width: 100%;
+    margin: 0 auto;
+}
+.user-pic{
+
+}
+#my-course a{
+	color: #fec303 !important;
+}
+#first-list a{
+	color: #ffffff !important;
+}
+.banner{
+	background: #132D4E;
+}
+.agileinfo-social-grids a{
+	text-decoration: none;
+}
+.agileinfo-social-grids .dropdown-menu li a:hover{
+	background: #e1af0b;
+}
+.agile-title{
+	margin: 2em 0 1em 0;
+}
+.mycourse h2{
+	text-align: left;
+	padding-left: 15px;
+}
+.user-bar{
+	font-size: .8em;
+	font-weight: normal;
+	list-style-type: none;
+}
+.login-user{
+	display: inline-block;
+}
+.login-user ul{
+	float: right;
+	overflow: hidden;
+	padding: 0;
+	margin: 0;
+}
+.person_show{
+	background: #bec5e8;
+	margin: 25px 0;
+	padding: 30px 10px;
+}
+.empty{
+    max-width: 100%;
+    height: 50%;
+}
+ .circle-bar {
+	font-size:80px;
+	width: 1em;
+	height: 1em;
+	position: relative;
+	background-color: #333;
+}
+.circle-bar-left,.circle-bar-right {
+	width: 1em;
+	height: 1em;
+	background-color: #eee;
+}
+.class-nav{
+	background: #4375c3;
+	border-radius: 5px;
+}
+.class-nav ul{
+	list-style: none;
+	margin: 0;
+	color: black;
+	font-size: 20px;
+}
+.class-nav ul li{
+	float: left;
+	line-height: 50px;
+	padding: 0 15px;
+	display: block;
+}
+.class-nav ul li a{
+	color: black;
+}
+.class-nav ul li:hover{
+	background: gray;
+}
+.class-nav ul li a:hover{
+	text-decoration: none;
+	color: white;
+}
+.content{
+	margin: 1em 0;
+}
+.user-name{
+    color: rgb(60, 60, 60);
+    font-family: Arial, 微软雅黑;
+    font-weight: bold;
+    font-size: 18px;
+}
+.course-list{
+	text-align: right;
+    font-weight: bold;
+	color: #337ab7 !important;
+    font-size: 1em;
+}
+.video-wrap a:hover{
+	color: #000000;
+}
+.manage_t{
+	width:50%;
+	position: absolute;
+	margin-left: 28%;
+	margin-top: -5%;
+}
+.manage_t ul{
+	list-style: none;
+    width: 100%;
+}
+.manage_t ul li{
+	float:left;
+}
+.manage_code {
+	width: 15%;
+	height: 90px;
+	margin-top: -4.3%;
+    margin-left: 31%;
+}
+.manage_t img{
+	height: 90px;
+}
+.manage_guide{
+	font-size: 0.8rem;
+	width: 40%;
+    margin-left: 3%;
+}
+.manage_name{
+	font-weight: bold;
+    padding-left: 7%;
+    margin-top: -4%;
+}
+.manage_tel{
+    display:none;
+}
+.empty_img{
+    margin-left: 20%;
+    width: 18%;
+}
+
+.please_wx_info{
+    float: right;
+    font-family: "微软雅黑";
+    margin-top: 5%;
+    font-size: 2rem;
+}
+
+.empty_info{
+    font-family: "微软雅黑";
+    margin-left: 10%;
+    font-size: 2rem;
+}
+
+.empty_code{
+    float: right;
+    width: 20%;
+    margin-left: 10%;
+}
+.wrap {
+    /*position: relative;*/
+    width: 10%;
+    float:left;
+    margin: 0 auto;
+    background: #F5F5F5;
+    border-radius: 8px;
+    margin-left: 5%;
+}
+.slider {
+    /*position: absolute;*/
+    /*width: 172px;*/
+    left: 24px;
+    top: 0;
+}
+ul{
+    display: block;
+    list-style: none;
+    /*list-style-type: disc;*/
+    -webkit-margin-before: 1em;
+    -webkit-margin-after: 1em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+    -webkit-padding-start: 0px;
+
+}
+.slider ul li {
+    height: 48px;
+    /*width: 160px;*/
+    margin: 0 auto 8px;
+}
+.active {
+    color: #fff;
+    background: #fec303;
+    border-radius: 8px 0 0 8px;
+}
+.slider ul li a{
+    list-style: none;
+    text-decoration: none;
+    color: #787d82;
+    font-size: 1.3rem;
+    position: relative;
+    display: block;
+    height: 48px;
+    line-height: 48px;
+    text-align: center;
+}
+.per_info{
+    width: 80%;
+    margin-top: 0.5%;
+    margin-left: 12%;
+}
+.per_con{
+    background: #fff;
+    padding: 0.3em 0;
+    border-radius: 5px;
+    box-shadow: 5px 5px 2px  #ccc;
+    margin-bottom: 2%;
+    margin-top: 2%;
+    width: 85% !important;
+}
+.per_class{
+    overflow: hidden;
+    width: 80%;
+    margin-left: 18%;
+}
+.per_class_card{
+    background: url(../../img/website/Mycourse.png)  !important ;
+    background-size: cover;
+    color: white;
+    border-radius: 0px;
+    height:140px;
+}
+.per_info_img{
+    width: 8%;
+    border-radius:50%;
+    /*margin-top: -2%;*/
+}
+.per_info_name{
+    display: inline-block;
+}
+.per_class_con{
+    width: 98%;
+    margin-top: 3%;
+    margin-bottom: 3%;
+}
+.per_info_name h5{
+    display: inline-block;
+    margin-right: 10px;
+    font-size: 14px;
+    color: #FFF;
+    line-height: 20px;
+}
+a.more_info{
+    font-size: 12px;
+    color: rgba(255,255,255,.6);
+    line-height: 16px;
+    display: inline-block;
+    height: 16px;
+    padding-left: 16px;
+    border-left: 2px solid rgba(255,255,255,.4);
+    cursor: pointer;
+}
+
+
+#per_info{
+    width: 85%;
+    margin-left: 15%;
+}
+
+.zz_per_info_img{
+    width: 20%;
+    border-radius:50%;
+}
+
+.zz_col{
+    padding-left: 5%;
+    padding-right: 2.5%;
+}
+
+.zz_row_1{
+    padding-top:8%;
+    padding-bottom: 15%;
+    border-bottom:solid 2px #e3dede;
+}
+
+.zz_icon_button{
+    float: right;
+    margin-right: 5%;
+    width: 25%;
+    height: 45px;
+    border-radius: 5px;
+    border: 2px;
+    background: #fec22e;
+    margin-top: 10%;
+    font-family: "微软雅黑";
+    color: #727474;
+}
+
+.zz_litte_icon{
+    float: left;
+    margin-left: 6%;
+    display: inline;
+}
+
+.zz_row_2{
+    padding-top:8%;
+    padding-bottom: 15%;
+    border-bottom:solid 2px #e3dede;
+    border-top:solid 2px #e3dede ;
+    border-bottom:solid 2px #e3dede;
+}
+
+
+.zz_mid_info{
+    float: left;
+    margin-left: 10%;
+    display: inline;
+}
+
+.zz_mid_info_bottom{
+    font-size: 12px;
+    font-family: "微软雅黑";
+    color: #727474;
+}
+
+.zz_mid_info_top_big{
+    font-size:16px;
+    font-family:"微软雅黑";
+}
+
+.zz_mid_info_top_small{
+    font-size:16px;
+    font-family: "微软雅黑";
+    color:#de3135;
+}
+
+.zz_edit_btn{
+    float: right;
+    background: url("../../img/website/edit_icon.png");
+    width: 60px;
+    height: 30px;
+    border: 0px;
+}
+
+.zz_row_3{
+    padding-top:5%;
+    padding-bottom: 5%;
+    border-bottom:solid 2px #e3dede;
+}
+
+.zz_big_icon{
+    float: left;
+    margin-top: 12%;
+    margin-left: 6%;
+}
+
+.zz_last_wx_info{
+    float: left;
+    margin-left:3%;
+    margin-top: 12%;
+    font-family: "微软雅黑";
+}
+
+.zz_wx_btn{
+    margin-top: 20%;
+    display: block;
+    background-color: #fec22e;
+    font-family: "微软雅黑";
+    border: 2px;
+    border-radius: 5px;
+    width: 100px;
+    color: #727474;
+}
+
+.info_computer{
+ }
+.info_phone{
+    display: none;
+    width: 100%;
+    margin: 0 auto;
+    height: 430px;
+}
+.info_phone_nav{
+    width: 100%;
+    height:90px;
+    background: url(../../img/website/Mycourse.png);
+}
+.info_phone_nav ul{
+    margin-left: 2%;
+}
+.info_phone_nav ul li{
+    padding-left: 0px;
+    margin-top: 5px;
+}
+.info_nav_img{
+    width: 60px;
+    border-radius: 50%;
+    margin-top: -5px;
+    margin-left: 2%;
+}
+.info_nav_name{
+    display: inline-block;
+}
+.info_nav_name h4{
+    font-size: 0.5rem;
+    color: wheat;
+}
+.info_nav_name span{
+    display: inline-block;
+    font-size: 0.3rem;
+    color: #FFF;
+    line-height: 0.3rem;
+}
+a.nav_more{
+    color: rgba(255,255,255,.6);
+    line-height: 15px;
+    display: inline-block;
+    height: 15px;
+    padding-left: 6px;
+    border-left: 2px solid rgba(255,255,255,.4);
+    cursor: pointer;
+}
+.info_nav_right img{
+    width: 50px;
+    margin-top: 5px;
+    margin-left: 40%;
+}
+.info_nav_span{
+    overflow: hidden;
+    font-size: 12px;
+    color: white;
+    display: block;
+    text-align: center;
+}
+.group {
+    display: -webkit-flex;
+    display: flex;
+    -webkit-justify-content: space-around;
+    justify-content: space-around;
+    font-size: 1.3rem;
+    background-color: #fff;
+    margin-top: 0rem;
+    padding-top: 1rem;
+    padding-bottom: 1.2rem;
+    box-shadow: 1px 1px 1px #ccc;
+}
+a {
+    color: #71777D;
+    text-decoration: none !important;
+}
+.group div {
+    text-align: center;
+}
+.group div p {
+    color: #2b333b;
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+.list {
+    width: 100%;
+    background-color: #fff;
+    margin: 1.875rem 0;
+    padding: 0;
+    list-style: none;
+    box-shadow: 1px 1px 1px #ccc;
+}
+.list .box2 {
+    height: 2.5rem;
+    line-height: 2.5rem;
+    color: #2b333b;
+    font-size: 0.9rem;
+    border-bottom: 1px solid #d9dde1;
+    font-weight: bold;
+    margin-left: 6%;
+}
+.btnlogout {
+    display: block;
+    width: 14rem;
+    color: black;
+    background-color: #fec303;
+    font-size: 1rem;
+    line-height: 2.5rem;
+    text-align: center;
+    margin: auto;
+    /*margin-top: 1.5rem;*/
+    border-radius: 0.2rem;
+    font-weight: bold;
+}
+.box2_img{
+    margin-right: 3%;
+}
+.group_img{
+    margin-bottom: 10%;
+}
+
+.zz_edit_username{
+    width: 70%;
+    border-radius: 5px;
+    font-family: "微软雅黑";
+}
+

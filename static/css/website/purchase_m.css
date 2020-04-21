@@ -1,0 +1,64 @@
+.class_choose{
+    display: none;
+}
+.order_list{
+    width:100%;
+    margin: 0 auto;
+}
+.list {
+    width: 100%;
+    background-color: #fff;
+    margin: 0.3rem 0;
+    padding: 0;
+    list-style: none;
+    box-shadow: 1px 1px 1px #ccc;
+}
+.list .box2 {
+    height: 2.5rem;
+    line-height: 2.5rem;
+    color: #2b333b;
+    font-size: 0.85rem;
+    border-bottom: 1px solid #d9dde1;
+    /*font-weight: bold;*/
+}
+.go_pay_class_m{
+    margin-left: 67%;
+    height: 2.5rem;
+    line-height: 2.5rem;
+}
+.on_click{
+    height: 2.5rem;
+    line-height: 2.5rem;
+    color: #2b333b;
+    font-size: 0.9rem;
+    border-bottom: 1px solid #d9dde1;
+    font-weight: bold;
+    background-color: #fec303;
+}
+.go_pay_m{
+    display: block;
+    width: 6rem;
+    color: black;
+    background-color: #fec303;
+    font-size: 1rem;
+    line-height: 2.5rem;
+    text-align: center;
+    margin: auto;
+    /*margin-top: 1.5rem;*/
+    border-radius: 0.2rem;
+    font-weight: bold;
+}
+.already{
+    display: inline-block;
+    width: 70%;
+}
+.already span{
+    color: red;
+    font-size: 0.85rem;
+}
+.already p{
+    display: inline;
+}
+.service-btns_m{
+    display: none;
+}

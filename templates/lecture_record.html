@@ -1,0 +1,88 @@
+{% extends "base.html" %}
+
+{% block link %}
+	<link href="//imgcache.qq.com/open/qcloud/video/tcplayer/tcplayer.css" rel="stylesheet">
+	<link href="{{STATIC_URL}}css/website/lecture_record.css" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+	<div class="all-cont">
+		<div class="v-cont">
+			<div class="lecture">
+				<video id="player-container-id" preload="auto" width="864" height="486" playsinline webkit-playinline x5-playinline></video>
+			</div>
+			<div class="c-info">
+				<div class="intro">
+					<div class="c-title">{{ current_lecture.name }}</div>
+					<div class="c-intro">{{ current_lecture.desc}}</div>
+				</div>
+			</div>
+		</div>
+		<div class="list-cont">
+			<div class="list-top">
+				<p>所属节目单</p>
+				<div class="l-cont">
+					<div class="l-img">
+						<img src="">
+					</div>
+					<div class="l-intro">
+						<p class="l-title">{{course_info.name}}</p>
+						<div class="l-introduction">
+							<span>灵犀</span>
+							<span>|</span>
+							<span>{{ lecture_record_list | length }}个节目</span>
+						</div>
+						<!--<div class="l-num">63人订阅</div>-->
+					</div>
+					<div class="add">
+						<div class="add-info">
+							<i></i>
+							收藏
+						</div>
+
+					</div>
+				</div>
+			</div>
+			<div class="list-class">
+				<ul>
+					{% for lecture_record in lecture_record_list %}
+					<li class="active">
+						<div class="li-cont">
+							<!--<div class="backon">置顶</div>-->
+							<div class="b-right">
+								<p><a href="/live/lecture_record/{{ lecture_record.id }}/">{{ lecture_record.title }}</a></p>
+								<div class="l-introduction">
+									<span>{{ lecture_record.desc}}</span>
+								</div>
+							</div>
+						</div>
+					</li>
+					{% endfor %}
+				</ul>
+			</div>
+		</div>
+	</div>
+{% endblock %}
+
+{% block script%}
+    <script src="//imgcache.qq.com/open/qcloud/video/tcplayer/tcplayer.min.js"></script>
+	<script src="//imgcache.qq.com/open/qcloud/video/tcplayer/ie8/videojs-ie8.js"></script>
+	<script src="//imgcache.qq.com/open/qcloud/video/tcplayer/lib/hls.min.0.8.8.js"></script>
+	<script src="//imgcache.qq.com/open/qcloud/video/vcplayer/TcPlayer-2.2.1.js" charset="utf-8"></script>
+	<script type="text/javascript">
+		var player = TCPlayer("player-container-id", {
+			 fileID: "{{current_lecture.record_lecture_info.file_id}}",
+   	 		 appID: "{{current_lecture.record_lecture_info.app_id}}",
+			 t: "{{current_lecture.record_lecture_info.t}}",
+			 us: "{{current_lecture.record_lecture_info.us}}",
+			 sign: "{{current_lecture.record_lecture_info.sign}}",
+			 plugins: {  //续播
+			 	ContinuePlay: {
+			 		auto: true,
+			 		text: '上次播放至',
+			 		btnText: '恢复播放'
+			 	}
+			 }
+		});
+	</script>
+{% endblock %}

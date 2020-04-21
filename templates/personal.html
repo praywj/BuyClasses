@@ -1,0 +1,351 @@
+{% extends "base.html" %}
+
+{% block link %}
+	<link rel="stylesheet" type="text/css" href="{{STATIC_URL}}css/website/person.css" >
+    <script src="https://cdn.bootcss.com/jquery/2.1.4/jquery.min.js"></script>
+{% endblock%}
+
+{% block content %}
+<!--电脑端个人信息-->
+<div class="info_computer">
+    <div class="agile-title mycourse long-card per_class_card">
+        <div class="per_info">
+            {% if base_info.avatar %}
+            <img src="{{ base_info.avatar }} " alt="" class="per_info_img">
+            {% else %}
+            <img src="https://gogoarmy-1256943690.cos.ap-beijing.myqcloud.com/img/avatar.png " alt="" class="per_info_img">
+            {% endif %}
+            <div class="per_info_name">
+                <h4>{{ base_info.username }}</h4>
+                <h5>学员</h5>
+                <h5><a href="" class="more_info">更多信息</a></h5>
+            </div>
+            <div class="manage_t">
+                <ul class="rows">
+                    <li class="manage_name col-md-5">扫码追随智人注会大队长</li>
+                    <li class="manage_code col-md-2"><img src="https://gogoarmy-1256943690.cos.ap-beijing.myqcloud.com/img/qr_pics/zhukuai_qr.jpeg" alt="" ></li>
+                    <li class="manage_guide col-md-5">请扫码添加班主任微信，添加后请告诉班主任您的注册手机号，班主任会拉您进入相应班级中</li>
+                </ul>
+            </div>
+            <!--<div class="manage_tel">-->
+                <!--<div class="manage_tel_guide">-->
+                    <!--<span>请扫码添加班主任微信，添加后请告诉班主任您的注册手机号，班主任会拉您进入相应班级中</span>-->
+                <!--</div>-->
+                <!--<span class="manage_tel_name">智人注会大队长</span>-->
+                <!--<div class="manage_img">-->
+                    <!--<img src="https://gogoarmy-1256943690.cos.ap-beijing.myqcloud.com/img/qr_pics/zhukuai_qr.jpeg" alt="" >-->
+                <!--</div>-->
+                <!--<div class="manage_tel_guide">-->
+                    <!--<span>保存以上二维码到手机相册>打开微信扫一扫>点击右上角"相册">选择本图片</span>-->
+                <!--</div>-->
+            <!--</div>-->
+        </div>
+
+    </div>
+	<div style="overflow: hidden">
+		<div class="container per_con">
+
+            <div class="per_class_con">
+                    <div class="wrap">
+                        <div class="slider">
+                            <ul id="slider_left">
+                                <li>
+                                    <a href="javascript:void(0)" onclick="grxxOnClick()"><span>个人信息</span></a>
+                                </li>
+
+                                <li>
+                                    <a href="javascript:void(0)" class="active" onclick="kcOnClick()"><span>课程</span></a>
+                                </li>
+
+                                <li>
+                                    <a href="#"><span>路径</span></a>
+                                </li>
+                                <li>
+                                    <a href="#"><span>笔记</span></a>
+                                </li>
+
+                            </ul>
+                        </div>
+                    </div>
+
+            {% if  my_course %}
+<!--                <div class="user-head-info">
+                    <div class="user-info">
+                        <div class="user-pic">
+                            <div class="user-pic-bg">
+                                <img src="{{ base_info.avatar }}">
+                            </div>
+                        </div>
+                        <div class="user-info-right"></div>
+                        <div class="user-sign"></div>
+                        <div class="study-info"></div>
+                    </div>
+                </div>-->
+
+
+                    <div class="row per_class" id="per_class">
+                        {% for course in my_course %}
+                        <div class="col-md-4">
+                            <div class="live">
+                                <div class="video-card">
+                                    <div class="live-card">
+                                        <img src="{{ course.image }}" />
+                                        <div class="class-buy">
+                                        </div>
+                                    </div>
+                                    <div class="main-card">
+                                        <div class="user-wrap">
+                                            <div class="user-name">
+                                                <a href="" >{{ course.name }}</a>
+                                            </div>
+                                        </div>
+                                        <div class="video-wrap">
+                                            <a href="">
+                                                <span class="v-title">{{ course.desc }}</span>
+                                                <a href="/live/live_course/{{ course.id }}/" class="course-list">
+                                                    <span>进入课程列表</span>
+                                                </a>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+
+                    {% else %}
+
+                    <div class="empty" id="empty">
+                        <img src="https://gogoarmy-1256943690.cos.ap-beijing.myqcloud.com/img/util/no_course.png" class="empty_img">
+                        <span class="empty_info">您当前没有已购课程~</span>
+                        <img src="{{STATIC_URL}}img/website/noclass_code.jpg" class="empty_code">
+                        <span class="please_wx_info">微信扫描二维码，获取当前课程优惠信息</span>
+                    </div>
+                    {% endif %}
+
+                    <div id="per_info" class="row" style="display: none">
+                        <div class="col-md-6 zz_col" >
+                            <div class="zz_row_3">
+                                {% if base_info.avatar %}
+                                <img src="{{ base_info.avatar }} " alt="" class="zz_per_info_img">
+                                {% else %}
+                                <img src="https://gogoarmy-1256943690.cos.ap-beijing.myqcloud.com/img/avatar.png " alt="" class="zz_per_info_img">
+                                {% endif %}
+      <!--                          <button class="zz_icon_button">上传新头像</button>    -->
+                            </div>
+                            <div class="zz_row_1">
+                                <div class="zz_litte_icon">
+                                    <img src="{{STATIC_URL}}img/website/phonenumber_icon.png">
+                                </div>
+          <!--                      <button class="zz_edit_btn"></button>   -->
+                                <div class="zz_mid_info">
+                                    <div>
+                                        <span class="zz_mid_info_top_big">手机：</span>
+                                        <span class="zz_mid_info_top_small">***********</span>
+                                    </div>
+                                    <span class="zz_mid_info_bottom">手机号是您的账号，可以通过该手机找回您的密码</span>
+                                </div>
+                            </div>
+                            <div class="zz_row_1">
+                                <div class="zz_litte_icon">
+                                    <img src="{{STATIC_URL}}img/website/password_icon.png">
+                                </div>
+                                <div class="zz_mid_info">
+                                    <div>
+                                        <span class="zz_mid_info_top_big">密码：</span>
+                                        <span class="zz_mid_info_top_small">已设置</span>
+                                    </div>
+                                    <span class="zz_mid_info_bottom">用于保护账户信息和登录安全</span>
+                                </div>
+           <!--                     <button class="zz_edit_btn"></button>     -->
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 zz_col">
+                            <div class="zz_row_2">
+                                <img src="{{STATIC_URL}}img/website/username_icon.png" class="zz_litte_icon">
+                                <div class="zz_mid_info">
+                                    <div id="username_before">
+                                        <span class="zz_mid_info_top_big">用户名：</span>
+                                        <span class="zz_mid_info_top_small">{{base_info.username}}</span>
+                                    </div>
+                                    <div id="username_after" style="display: none">
+                                        <span class="zz_mid_info_top_big">用户名：</span>
+                                        <input class="zz_edit_username" id="zz_edit_username" type="text" value="{{base_info.username}}">
+                                    </div>
+                                    <span class="zz_mid_info_bottom" id="username_tips">可以更改您的用户名，便于直播间交流</span>
+                                </div>
+                                <button class="zz_edit_btn" onclick="usernameEditButton()"></button>
+                            </div>
+                            <div class="zz_row_1">
+                                <img src="{{STATIC_URL}}img/website/username_icon.png" class="zz_litte_icon">
+                                 <div class="zz_mid_info">
+                                    <div>
+                                        <span class="zz_mid_info_top_big">书山有路勤为径，学海无涯苦作舟</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <img src="{{STATIC_URL}}img/website/weixin_icon.png" class="zz_big_icon">
+                                <div class="zz_last_wx_info">
+                                    <span >微信</span>
+                                    <span>未绑定</span>
+   <!--                                 <button class="zz_wx_btn">解除绑定</button>   -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+			</div>
+
+		</div>
+</div>
+<!--手机端个人信息-->
+<div class="info_phone">
+    <div class="info_phone_nav">
+        <ul class="rows">
+            <li class="col-xs-7">
+                {% if base_info.avatar %}
+                <img src="{{ base_info.avatar }} " alt="" class="info_nav_img">
+                {% else %}
+                <img src="https://gogoarmy-1256943690.cos.ap-beijing.myqcloud.com/img/avatar.png " alt="" class="info_nav_img">
+                {% endif %}
+                <div class="info_nav_name">
+                    <h4>{{ base_info.username }}</h4>
+                    <span>学员</span>
+                    <span><a href="" class="nav_more">更多信息</a></span>
+                </div>
+
+            </li>
+            <li class="info_nav_right col-xs-5">
+                <img src="https://gogoarmy-1256943690.cos.ap-beijing.myqcloud.com/img/qr_pics/zhukuai_qr.jpeg" alt="" >
+                <span class="info_nav_span">扫码追随智人注会大队长</span>
+            </li>
+        </ul>
+
+    </div>
+    <div class="group">
+
+        <a href="/m/my_course">
+
+            <div>
+                <img src="{{STATIC_URL}}img/website/class30.png" alt="" class="group_img">
+                <p>我的课程</p>
+            </div>
+        </a>
+        <a href="">
+            <div>
+                <img src="{{STATIC_URL}}img/website/direct30.png" alt="" class="group_img" >
+                <p>我的直播</p>
+            </div>
+        </a>
+    </div>
+    <div class="list">
+        <a href="/m/my_information">
+
+            <div class="box2">
+                <img src="{{STATIC_URL}}img/website/settings20.png" alt="" class="box2_img"> 个人设置
+            </div>
+        </a>
+        <a href="">
+            <div class="box2">
+                <img src="{{STATIC_URL}}img/website/problem20.png" alt="" class="box2_img"> 常见问题
+            </div>
+        </a>
+        <a href="">
+            <div class="box2">
+                <img src="{{STATIC_URL}}img/website/view20.png" alt="" class="box2_img"> 意见反馈
+            </div>
+        </a>
+    </div>
+    <a class="btnlogout" href="/auth/logout/">退出登录</a>
+</div>
+
+<script type="text/javascript">
+    $(function(){
+        $("#slider_left li a").click(function(){
+            $(this).parent().siblings().children('a').removeClass('active');  // 删除其他兄弟元素的样式
+            $(this).addClass('active');                            // 添加当前元素的样式
+        })
+    })
+
+    var username_tips = document.getElementById("username_tips");
+
+    function usernameEditButton(){
+        var div_show = document.getElementById("username_before");
+        var div_edit = document.getElementById("username_after");
+        if(div_edit.style.display == "none"){
+            document.getElementById("zz_edit_username").value = "{{base_info.username}}";
+            div_show.style.display = "none";
+            div_edit.style.display = "block";
+
+        }else if(div_show.style.display == "none"){
+
+            var new_username = document.getElementById("zz_edit_username").value;
+
+            if(new_username == null || new_username == ""){
+                username_tips.innerHTML = "输入的用户名不能为空";
+                username_tips.style.color = "#9e2c2c";
+            }else if(new_username == "{{base_info.username}}"){
+
+            } else{
+                var new_name = {
+                    nickname:new_username
+                };
+                $.ajax({
+                    url:"/auth/update_user_nickname_ajax/",
+                    datatype:JSON,
+                    data:new_name,
+                   success:function ( result ) {
+                       if(result.success){
+                            username_tips.innerHTML = "修改成功";
+                            div_edit.style.display = "none";
+                            div_show.style.display = "block";
+                       }
+                       else{
+                           console.log(result.error_msg);
+                           div_edit.style.display = "none";
+                            div_show.style.display = "block";
+                            username_tips.innerHTML = result.error_msg;
+                            username_tips.style.color = "#9e2c2c";
+                       }
+                   }
+                })
+            }
+            setTimeout("tips_comeback()",2000);
+        }
+    }
+
+    function tips_comeback(){
+        username_tips.innerHTML="可以更改您的用户名，便于直播间交流";
+        username_tips.style.color = "#727474";
+    }
+
+
+    function grxxOnClick() {
+        var per_info = document.getElementById("per_info");
+        var per_class = document.getElementById("per_class");
+        if(per_class == null){
+            per_class = document.getElementById("empty")
+        }
+        per_class.style.display = "none";
+        per_info.style.display = "block";
+    }
+
+    function kcOnClick() {
+        var per_info = document.getElementById("per_info");
+        var per_class = document.getElementById("per_class");
+        if(per_class == null){
+            per_class = document.getElementById("empty")
+        }
+        per_info.style.display = "none";
+        per_class.style.display = "block";
+    }
+
+
+</script>
+
+{% endblock %}
+
+

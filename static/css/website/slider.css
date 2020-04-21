@@ -1,0 +1,254 @@
+﻿/*banner slider*/
+.carousel-inner{
+    width: 100%;
+}
+.image-slider{
+    /*width: 100%;*/
+    margin: 0 auto;
+    position: relative;
+    /*display: block;*/
+}
+.phone-image-slider{
+    display: none;
+}
+.image-slider-back{
+    background-image: url("../../img/website/prev.png");
+    position: absolute;
+    width: 48px;
+    height: 47px;
+    top: 30%;
+    left: -10%;
+}
+.image-slider-forward{
+    background-image: url("../../img/website/next.png");
+    position: absolute;
+    top: 30%;
+    width: 48px;
+    height: 47px;
+    right: -10%;
+}
+.image-slider-contents{
+    width: 100%;
+    margin: 0 auto;
+    overflow: hidden;
+}
+.contents-wrapper{
+    transition: all 0.5s;
+    width: 176%;
+    overflow: hidden;
+}
+.second-list{
+    margin-top: 3.5%;
+}
+.outer{
+    display: inline-block;
+    position: relative;
+    width: 12%;
+    margin:0 1%;
+}
+.second-list{
+    overflow: hidden;
+}
+.second-list .outer:first-child{
+    float: left;
+    margin-left: 18%;
+}
+.second-list .outer:last-child{
+    float: right;
+    margin-right: 18%;
+}
+.spic{
+    width: 100%;
+}
+.spic img{
+    width: 100%;
+    border-radius: 8px;
+}
+.t-intro{
+    position: absolute;
+    bottom: 0;
+    height: 41%;
+    background: #c3c8f5;
+    border-radius: 8px;
+}
+.t-intro a{
+    display: block;
+    text-align: center;
+    line-height: 27px;
+    border-radius: 8px 8px 0 0;
+    color:#fec303;
+    background: #000000;
+    font-size: 15px;
+    font-weight: bold;
+    font-family: 'Arial';
+    opacity: .8;
+}
+.t-intro a:hover{
+    text-decoration: none;
+    opacity: 1;
+}
+.t-intro p{
+    margin: 0;
+    font-size: 12px;
+    line-height: 17px;
+    font-family: "Arial";
+    padding: 2px 6px 0 6px;
+}
+.preview{
+    text-align: center;
+}
+.preview ul{
+    padding: 0;
+    display: inline-block;
+    margin-top: 20px;
+    overflow: auto;
+}
+.preview ul li {
+    float: left;
+    display: inline;
+    width: 30px;
+    height: 10px;
+    background: #cecece;
+    margin: 10px;
+}
+.l-active{
+    background: dimgray !important;
+}
+.clearfix{
+    clear:both;
+}
+@media (min-width: 1400px){
+    .t-intro{
+        height: 37%;
+    }
+    .t-intro a{
+        font-size: 20px;
+        line-height: 35px;
+    }
+    .t-intro p{
+        font-size: 16px;
+        line-height: 18px;
+        padding: 3px 8px;
+    }
+}
+@media (min-width: 768px) and (max-width: 1024px){
+    .outer{
+        width: 12.5%;
+        margin: 0 0.6%;
+    }
+    .t-intro{
+        height: 44%;
+    }
+    .t-intro a{
+        font-size: 12px;
+        line-height: 25px;
+    }
+    .t-intro p{
+        font-size: 12px;
+        line-height: 14px;
+        padding: 0 4px;
+    }
+    .second-list .outer:first-child{
+        margin-left: 16%;
+    }
+    .second-list .outer:last-child{
+        margin-right: 16%;
+    }
+     .second-list .outer:last-child .t-intro p{
+         font-size: 13px;
+         line-height: 15px;
+         padding: 0 8px;
+     }
+}
+@media (max-width: 768px){
+    .image-slider{
+        display: none;
+    }
+    .phone-image-slider{
+        display: block;
+        width: 85%;
+        margin: 1.5em auto;
+    }
+    .phone-slider-contents{
+        width: 100%;
+        overflow: hidden;
+        background: #c3c8f5;
+        font-family: "Arial";
+        border-radius: 8px;
+    }
+    .phone-contents-wrapper{
+        width: 500%;
+        transition: all 0.5s;
+    }
+    .phone-outer{
+        float: left;
+        /*display: inline-block;*/
+        width: 20%;
+    }
+    .phone-spic{
+        float: left;
+        width: 31%;
+        vertical-align: top;
+    }
+    .phone-spic img{
+        width: 117%;
+    }
+    .phone-t-intro{
+        float: right;
+        width: 60%;
+        margin-top: 5px;
+    }
+    .phone-t-intro a{
+        line-height: 30px;
+        font-weight: bold;
+        font-size: 20px;
+        color: #1323ba;
+    }
+    .phone-t-intro p{
+        margin: 0;
+        margin-top: 10px;
+    }
+    .phone-preview{
+        width: 40%;
+        margin: 0 auto;
+        overflow: hidden;
+        margin-top: 20px;
+    }
+    .phone-preview ul{
+        padding: 0;
+        margin: 0;
+        list-style: none;
+    }
+    .phone-preview ul li{
+        width: 10px;
+        height: 10px;
+        border-radius: 5px;
+        background: #e6e6e6;
+        float: left;
+        margin-left: 10px;
+    }
+    .phone-preview ul  .phone-active{
+        background: #808080;
+    }
+}
+@media (min-width: 480px) and (max-width: 768px){
+    .phone-image-slider{
+        width: 69%;
+        margin: 1em auto;
+    }
+    .phone-preview{
+        width: 22%;
+    }
+    .phone-pic{
+        width: 40%;
+    }
+    .phone-t-intro{
+        margin-top: 13%;
+    }
+}
+@media (max-width: 360px){
+    .phone-spic img{
+        width: 122%;
+    }
+}
+

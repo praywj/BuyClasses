@@ -1,0 +1,109 @@
+.payfor li{ list-style: none;}
+.payfor{
+    width: 50%;
+    background-color: #fff;
+    border: 1px solid #e1e1e1;
+    border-top: none;
+    min-height:680px;
+    margin:90px auto;
+    box-shadow: 1px 1px 1px #ccc;
+}
+.cmoney{
+    height:45px;
+    width:125px;
+    padding-top: 20px;
+    /*background: red;*/
+    margin-left: 40px;
+    line-height:45px;
+    font-size: 23px;
+}
+.cmoney img{
+    height:40px;
+    width:40px;
+}
+.grad1 {
+    height: 3px;
+    margin-top: 15px;
+    background: -webkit-linear-gradient(left, white, #e4e4e4); /* Safari 5.1 - 6.0 */
+    background: -o-linear-gradient(right, white, #e4e4e4); /* Opera 11.1 - 12.0 */
+    background: -moz-linear-gradient(right, white, #e4e4e4); /* Firefox 3.6 - 15 */
+    background: linear-gradient(to right, white, #e4e4e4); /* 标准的语法（必须放在最后） */
+}
+.time{
+    margin-top: 15px;
+    font-size: 20px;
+    text-align: center;
+}
+.info{
+    min-height:150px;
+    margin-top: 25px;
+    margin-left: 10%;
+}
+.info h4{
+    line-height: 23px;
+    font-size: 20px;
+}
+.total{
+    font-size: 30px;
+    font-weight: bold;
+}
+.total_class{
+    margin-left:100px;
+    margin-top:-36px
+}
+.total_class span{
+    margin-right: 22px;
+    font-size: 1.1rem;
+    line-height: 2rem;
+}
+.way{
+    width:130px;
+    height:44px;
+    margin-top: -40px;
+    margin-left: 40px;
+}
+.qrcode{
+    margin-top: 25px;
+    height: 165px;
+}
+#checked{
+    width:140px;
+    height:33px;
+    background: url("../../img/website/wechat_green.png");
+    background-size: 100% 100%;
+    display: block;
+    margin-left: 12px;
+}
+#unchecked{
+    width:140px;
+    height:33px;
+    background: url("../../img/website/wechat_grey.png");
+    background-size: 100% 100%;
+    display:none;
+    margin-left: 12px;
+}
+.info ul li{
+    float:left;
+    list-style-type:none
+}
+.code1{
+    width:189px;
+    height:157px;
+    /*background-color: #0C0C0C;*/
+    margin-left: -40px;
+}
+.code1 img{
+    width:100%;
+}
+.code2{
+    width:175px;
+    height:70px;
+    margin-left: 20px;
+    margin-top: 20px;
+}
+.code3{
+    width:155px;
+    height:210px;
+    margin-top: -25px;
+    margin-left: 35%;
+}

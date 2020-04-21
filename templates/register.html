@@ -1,0 +1,129 @@
+{% extends "base.html" %}
+
+{% block link %}
+    <link rel="stylesheet" type="text/css" href="{{STATIC_URL}}css/website/register.css" media="all" >
+{% endblock %}
+{% block content %}
+
+<div class="user-modal-signuo mt-5" id="content">
+    <form class="form" id="signup_form">
+        <div class="form-group">
+            <label for="signup-phone">手机号：</label>
+            <input type="text" class="form-control" id="signup-phone" name="phone" maxlength="11" placeholder="请输入手机号码"
+                   onblur="validatemobile02(this.value)" onkeyup="phoneNumberValidateInRegister(this)">
+        </div>
+        <div class="form-row">
+            <div class="col-7">
+                <label for="verify_code">手机验证码：</label>
+                <input type="text" class="form-control" id="verify_code" name="verify_code"  placeholder="请输入验证码"
+                       onblur="captchaIsNull(this.value)" >
+
+            </div>
+            <div class="col-3 mt-4">
+                <input id="send_code_btn" class="btn btn-primary" type="button" value="点击发送验证码" onclick="sendVerifyCode()">
+            </div>
+            <div class="mt-2" id="validation_err"></div>
+        </div>
+
+        <div class="form-group">
+            <label for="signup-psw">密码：</label>
+            <input type="password" class="form-control" id="signup-psw" name="password" placeholder="8-20位，只能包含字母和数字"
+                   onkeyup="passwordOneValidateInRegister(this)">
+        </div>
+
+        <div class="form-group">
+            <label for="signup-psw-validate">再次输入密码：</label>
+            <input type="password" class="form-control" id="signup-psw-validate" name="password_validate"
+                   onkeyup="passwordTwoValidateInRegister()" placeholder="请再次输入密码，和第一次输入一致">
+            <label class="mt-2" id="psw_match_err"> </label>
+        </div>
+    </form>
+        <button type="submit" class="signup-btn btn btn-primary form-control mt-3 sub" onclick="signup_submit()">创建账号</button>
+</div>
+
+{% endblock %}
+
+{% block script %}
+<script type="text/javascript">
+    function phoneNumberValidateInRegister (thisObj) {
+        var eventObj = window.event || arguments[0];
+        if(eventObj.keyCode == 13){
+            if(validatemobile02(thisObj.value)){
+                document.getElementById("send_code_btn").click();
+                var inputEle = document.getElementById("verify_code");
+                inputEle.focus();
+            }
+        }
+    }
+
+    function captchaIsNull(value){
+        if(value == null || value == ''){
+                psw_error_msg.text('验证码不能为空');
+                psw_error_msg.css('color', '#9e2c2c');
+                return false;
+        }
+        psw_error_msg.text('');
+        return true;
+    }
+
+    function captchaValidateInRegister(thisObj) {
+        var eventObj = window.event || arguments[0];
+        if(eventObj == 13){
+            if(captchaIsNull(thisObj.value)){
+                var inputEle = document.getElementById("signup-psw");
+                inputEle.focus();
+            }
+        }
+    }
+    
+    function passwordIsRight(value) {
+        var reg = /^[A-Za-z0-9]{8,20}$/;
+        if(!reg.test(value)){
+            psw_error_msg.text('密码不合法，8-20位，只能含有数字和字母！');
+            psw_error_msg.css('color', '#9e2c2c');
+            return false;
+        }
+        psw_error_msg.text('密码格式合法');
+        psw_error_msg.css('color', '#04540a');
+        return true;
+    }
+
+    function passwordOneValidateInRegister(thisObj){
+        var eventObj = window.event || arguments[0];
+        if(eventObj.keyCode == 13){
+            if(passwordIsRight(thisObj.value)){
+                var inputEle = document.getElementById("signup-psw-validate");
+                inputEle.focus();
+            }
+        }
+    }
+
+    function passwordJudgeWithTwo(){
+        var signuppassword = $('#signup-psw');
+        var signuppassword2 = $('#signup-psw-validate');
+        if (signuppassword.val() == signuppassword2.val()){
+            psw_error_msg.text('密码满足');
+            psw_error_msg.css('color', '#04540a');
+            return true;
+        }else{
+            psw_error_msg.text('两次密码不一致');
+            psw_error_msg.css('color', '#9e2c2c');
+            return false;
+        }
+    }
+
+    var lastTime = new Date().getTime();
+
+    function passwordTwoValidateInRegister(){
+        var eventObj = window.event || arguments[0];
+        var thisTime = new Date().getTime();
+        if(eventObj.keyCode == 13){
+            if(passwordJudgeWithTwo() && thisTime-lastTime >=3000){
+                lastTime = thisTime;
+                signup_submit();
+            }
+        }
+    }
+</script>
+<script src="{{STATIC_URL}}js/website/register.js"></script>
+{% endblock %}

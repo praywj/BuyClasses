@@ -1,0 +1,118 @@
+{% extends "base.html" %}
+ {% block link %}
+     <link href="{{STATIC_URL}}css/website/my_information.css" rel="stylesheet" type="text/css" media="all" />
+ {% endblock %}
+
+{% block content %}
+
+ <div class="top_info">
+     <div>
+     {% if base_info.avatar %}
+     <img src="{{ base_info.avatar }} " alt="" class="top_icon_img">
+     {% else %}
+     <img src="https://gogoarmy-1256943690.cos.ap-beijing.myqcloud.com/img/avatar.png " alt="" class="top_icon_img">
+     {% endif %}
+     </div>
+     <div style="padding-top:4%">
+     <span class="sign_info">旧书不厌百回读,熟读精思子自知</span>
+    </div>
+ </div>
+
+<div class="middle_small_info">
+
+    <img>
+    <span>用户名：</span>
+    <button class="middle_small_info_button" onclick="edit_username()"></button>
+    <span class="middle_small_info_front" id="username_show">{{base_info.username}}</span>
+    <input style="display: none" class="m_username_input" id="username_input" >
+    <div class="middle_small_info_bottom">
+        <span id="username_tips">可以更改您的用户名，便于直播间交流</span>
+    </div>
+</div>
+
+<div class="middle_small_info">
+    <img>
+    <span>手机号码：</span>
+    <span class="middle_small_info_front">***********</span>
+    <div class="middle_small_info_bottom">
+        <span >您的账号，可以通过该手机找回您的密码</span>
+
+    </div>
+</div>
+
+<div class="middle_small_info">
+    <img>
+    <span>密码：</span>
+    <span class="middle_small_info_front">已设置</span>
+    <div class="middle_small_info_bottom">
+        8位以上并包含字母和数字，用于保护账户信息
+    </div>
+</div>
+
+<div class="middle_small_info">
+    <img src="{{STATIC_URL}}img/website/weixin_icon.png" class="top_icon_img">
+    <span class="wx_info">未绑定</span>
+</div>
+
+{% endblock %}
+
+
+{% block script%}
+<script type="text/javascript">
+
+
+    var show_username = document.getElementById("username_show");
+    var input_username = document.getElementById("username_input");
+
+    function edit_username(){
+        if(show_username.style.display == "none"){
+             var new_username = input_username.value;
+
+            if(new_username == null || new_username == ""){
+                username_tips.innerHTML = "输入的用户名不能为空";
+                username_tips.style.color = "#9e2c2c";
+            }else if(new_username == "{{base_info.username}}"){
+
+            } else{
+                var new_name = {
+                    nickname:new_username
+                };
+                $.ajax({
+                    type:"POST",
+                    url:"/auth/update_user_nickname_ajax/",
+                    datatype:JSON,
+                    data:new_name,
+                   success:function ( result ) {
+                       if(result.success){
+                            username_tips.innerHTML = "修改成功";
+                       }
+                       else{
+                           console.log(result.error_msg);
+                            username_tips.innerHTML = result.error_msg;
+                            username_tips.style.color = "#9e2c2c";
+                       }
+                   }
+                })
+            }
+
+            input_username.style.display = "none";
+            show_username.style.display = "block";
+            setTimeout("tips_comeback()",2000);
+        }
+        else if(input_username.style.display == "none"){
+            input_username.value="{{base_info.username}}";
+            show_username.style.display = "none";
+            input_username.style.display = "block";
+
+
+        }
+    }
+
+    function tips_comeback() {
+        username_tips.innerHTML="可以更改您的用户名，便于直播间交流";
+        username_tips.style.color = "#727474";
+    }
+
+
+</script>
+{% endblock %}

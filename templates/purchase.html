@@ -1,0 +1,159 @@
+{% extends "base.html" %}
+
+{% block link %}
+	<link rel="stylesheet" href="{{STATIC_URL}}css/website/purchase.css" type="text/css" media="all" />
+    <link rel="stylesheet" href="{{STATIC_URL}}css/website/purchase_m.css" type="text/css" media="all" />
+    <div id="mask"></div>
+    <div id="tellus">
+        <div class="service-title">购买课程</div>
+        <div class="service-intro">
+            <p>智人教育服务声明</p>
+            <div class="service-text">欢迎您使用智人教育服务（以下简称：“本服务”）！
+                为使用本服务，您应当阅读并遵守《智人教育服务协议》（以下称“本协议”）、 《腾讯服务协议》、 《QQ号码规则》、 《QQ软件许可及服务协议》、 《QQ群服务协议》、 《财付通服务协议》、 《快捷支付服务协议》、 《微信支付用户服务协议》、 《微信电子商务服务协议》等相关协议及业务规则。请您务必审慎阅读、充分理解各条款内容，特别是限制或免除责任的相应条款，以及开通或使用某项服务的单独协议，并选择接受或不接受。限制或免除责任条款可能以加粗形式提示您注意。
+                除非您已阅读并接受本协议所有条款，否则您无权使用本服务。您在本服务中进行的支付、添加、使用等行为即视为您已阅读并同意受本协议的约束。
+                如果您未满18周岁，请在法定监护 人的陪同下阅读本协议，并在法定监护人的指导下使用本服务。
+            </div>
+        </div>
+        <div class="service-btns service-btns_c">
+            <div class="service-check"><input type="checkbox" id="service-check">同意<span>智人教育服务协议</span></div>
+            <div class="pay-btn">
+                <a class="pay" id="pay">去付款</a>
+                <a class="del">取消</a>
+            </div>
+        </div>
+        <div class="service-btns service-btns_m">
+            <div class="service-check"><input type="checkbox" id="service-check_m">同意<span>智人教育服务协议</span></div>
+            <div class="pay-btn">
+                <a class="pay" id="pay_m">去付款</a>
+                <a class="del">取消</a>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}
+{% block content %}
+<!--电脑端-->
+<div class="class-choose choose_class">
+    <div class="title">
+        <h2>可选课程</h2>
+    </div>
+    <div class="class-wrap">
+        <table class=" order-list" >
+            <thead >
+            <tr class="rows">
+                <th class="col-xs-2 col-md-2 col-lg-2 all-check" style="padding-left: 0">
+                    <input type="checkbox" class="check-all" >
+                    <span>全选</span>
+                </th>
+                <th class="col-xs-6 col-md-6 col-lg-6 " style="padding-left: 0">课程</th>
+                <!--<th class="col-xs-2 col-md-2 col-lg-2 " style="padding-left: 0">数量</th>-->
+                <th class="col-xs-4 col-md-4 col-lg-4 row_price " >价格</th>
+                <!--<th class="col-xs-2 col-md-2 col-lg-2 " style="padding-left: 0">现价</th>-->
+            </tr>
+            </thead>
+            <tbody id="order-list">
+            {% for liveroom in liverooms%}
+            <tr class="all_class">
+                <td class="check-buy ">
+                    <label>
+                        <i></i>
+                        <input type="checkbox" name="" class="clickbox">
+                    </label>
+                </td>
+                <td style="display: none">
+                    {{liveroom.id}}
+                </td>
+                <td class="lesson" >
+                    <div >
+                        <i></i>
+                        <a href="">{{liveroom.name}}</a>
+                        <div id="lesson_{{liveroom.id}}" style="display: inline"></div>
+                    </div>
+                </td>
+                <!--<td class="number">1</td>-->
+                <td ><div class="del_op"><del class="op">￥666.00</del></div><span>￥{{liveroom.price}}</span></td>
+                <td class="is_pur">
+                    {{liveroom.has_purchased}}
+                </td>
+                <!--<td class="price"></td>-->
+            </tr>
+            {% endfor %}
+            <tr class="btn-wrap">
+                <td class="check-buy " style="padding-left: 0">
+                </td>
+                <td >
+                    <!--总价<span class="total-price">￥0.0</span>-->
+                    <!--<input type="button" name="" value="去结算" onclick = "account()">-->
+                </td>
+                <td class="go-pay all go_pay_com">
+                    <div class="go_pay_class">总价<span class="total-price">￥0.0</span></div>
+                    <input type="button" name="" value="去结算" class="go_pay">
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<!--手机端-->
+<div class="class_choose">
+    <div class="title">
+        <h2>可选课程</h2>
+    </div>
+    <div class="class-wrap">
+        <div class=" order_list">
+            <input type="checkbox" class="check-all" >
+            <span>全选</span>
+        </div>
+        <div class="list" id="list">
+
+            {% for liveroom in liverooms%}
+            <div class="box2" >
+                <input type="checkbox" name="" class="click_box" >
+                <span style="display: none">{{liveroom.id}}</span>
+                <div id="lesson_m{{liveroom.id}}" class="already"><p>{{liveroom.name}}</p></div>
+                <span>￥{{liveroom.price}}</span>
+                <span class="is_pur">{{liveroom.has_purchased}}</span>
+            </div>
+            {% endfor %}
+            <div class="go_pay_class_m ">总价<span class="total-price">￥0.0</span></div>
+            <div class="go-pay all go_pay_m">
+                <span class="go_pay">去结算</span>
+            </div>
+            <div style="height:1em;"></div>
+        </div>
+
+    </div>
+</div>
+{% endblock %}
+{% block script %}
+<script src="{{STATIC_URL}}js/website/payment.js"></script>
+<script src="{{STATIC_URL}}js/website/purchase_m.js"></script>
+<script type="text/javascript">
+    // 获取用户已经购买的课程信息
+    var trList = $('#order-list').children("tr");
+    for(var i = 0; i < trList.length-1; i++){
+        var is_check = trList.eq(i).find('.is_pur');
+        let check = is_check.html();
+        check = check.replace(/\ +/g,"");
+        check = check.replace(/[\r\n]/g,"");
+        var flag = false;
+        if(check == "True")
+            flag = true;
+        if(flag){
+            console.log(flag);
+            var check_box = trList.eq(i).find('.clickbox');
+            check_box.css("display","none");
+            var spanObj = document.createElement('span');
+            spanObj.innerText = "[已购买]"
+            var get_id = check_box.parent().parent().next().html();
+            get_id = get_id.replace(/\ +/g,"");
+            get_id = get_id.replace(/[\r\n]/g,"");
+            get_id = 'lesson_' + get_id;
+            console.log(get_id);
+            document.getElementById(get_id).appendChild(spanObj)
+        }
+    }
+</script>
+{% endblock %}

@@ -1,0 +1,139 @@
+{% extends "base.html" %}
+
+{% block link %}
+	<link rel="stylesheet" href="{{STATIC_URL}}css/website/liverooms.css" type="text/css" media="all">
+	<link href="//imgcache.qq.com/open/qcloud/video/tcplayer/tcplayer.css" rel="stylesheet">
+
+{% endblock%}
+{% block content %}
+
+
+	<div class="content content_live">
+		<div class="liveroom_title">
+			<ol class="breadcrumb ">
+				<li><a href="/">首页</a></li>
+				<li><a href="/my_course/">我的课程</a></li>
+				<li ><a href="/live/live_course/{{ casting_lecture.id }}">{{ liveroom_info.name }}</a></li>
+				<li class="active">{{ casting_lecture.title }}</li>
+			</ol>
+		</div>
+
+		<div class="live-cont">
+			<div class="live-info">
+				<div class="live-on">
+					<div id="video" playsinline webkit-playinline x5-playinline></div>
+				</div>
+				<div class="c-info">
+					<div class="intro">
+						<div class="c-title">{{ casting_lecture.title }}</div>
+						<div class="c-intro">{{ casting_lecture.desc }}</div>
+					</div>
+				</div>
+			</div>
+			<div class="talk-cont">
+				<div class="talk-title">聊天互动区</div>
+				<div class="interact">
+					<div class="talk">
+
+					</div>
+					<div class="p-input">
+						<div class="my-input">
+							<textarea name="" id="my-input" placeholder="在输入框中键入回车键，即可发送消息"></textarea>
+							<button id="liveroom_send_btn" class="send-btn" onclick=onSendMsg() onmouseover="send_btn_over()" onmouseout="send_btn_out()">发送</button>
+						</div>
+
+						<label class="talk-error-info" id="liveroom_talk_info"></label>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</div>
+{% endblock %}
+
+{% block script%}
+	<script src="//imgcache.qq.com/open/qcloud/video/tcplayer/lib/hls.min.0.8.8.js"></script>
+	<script src="//imgcache.qq.com/open/qcloud/video/vcplayer/TcPlayer-2.2.1.js" charset="utf-8"></script>
+	<script type="text/javascript" src="{{STATIC_URL}}js/im_sdk/json2.js"></script>
+	<script type="text/javascript" src="{{STATIC_URL}}js/im_sdk/webim.js"></script>
+	<!--web im sdk-->
+	<script type="text/javascript">
+		var play_url = "{{casting_lecture.play_url}}";
+		var player =  new TcPlayer('video', {
+			"m3u8_hd": play_url + "_900.m3u8",     // 高清
+			"m3u8_sd": play_url + "_550.m3u8",      // 标清
+			"flv_hd": play_url + "_900.flv",
+			"flv_sd": play_url + "_550.flv",
+			"autoplay" : true,
+			"live": true,
+			"coverpic": {"style": "stretch", "src":"{{casting_lecture.image}}"},
+			"width":  "100%",
+			"height": "100%",
+			"systemFullscreen": true,
+			"wording": {
+			    1: "老师正在赶来的路上，请稍等~",
+                2: "老师正在赶来的路上，请稍等~",
+                3: "老师正在赶来的路上，请稍等~",
+                4: "老师正在赶来的路上，请稍等~",
+                5: "老师正在赶来的路上，请稍等~",
+                10: "老师正在赶来的路上，请稍等~",
+                11: "老师正在赶来的路上，请稍等~",
+                12: "老师正在赶来的路上，请稍等~",
+                13: "本期直播已结束~",
+			    1001: "老师正在赶来的路上，请稍等~",
+                1002: "老师正在赶来的路上，请稍等~",
+                2032: "老师正在赶来的路上，请稍等~",
+                2048: "老师正在赶来的路上，请稍等~"
+            }
+		});
+		var selToID = "liveroom_"+"{{liveroom_info.id}}";
+
+		var isAdmin = "{{is_admin}}";
+
+		var userNickName = "{{base_info.username}}";
+		console.log(userNickName);
+
+		function send_btn_over() {
+			var send_btn = document.getElementById("liveroom_send_btn");
+			send_btn.style.background="#ff7700";
+        }
+
+        function test(){}
+        
+        function send_btn_out() {
+			var send_btn = document.getElementById("liveroom_send_btn");
+			send_btn.style.background="#fec303";
+        }
+
+		var lastTime = new Date().getTime();
+
+		var liveroom_talk_info = document.getElementById("liveroom_talk_info");
+
+		var textInput = document.getElementById("my-input");
+
+		textInput.onkeydown = function (e) {
+			var code;
+			if(!e){
+			    var e = window.event;
+			}
+			if(e.keyCode){
+			    code = e.keyCode;
+			}else if(e.which){
+			    code = e.which;
+			}
+			if(code == 13 && window.event){
+			    e.preventDefault();
+			    var nowTime = new Date().getTime();
+				if(nowTime-lastTime>1000) {
+		            lastTime = nowTime;
+		        	onSendMsg();
+                }else {
+		            lastTime = nowTime;
+                }
+			}
+        }
+
+
+	</script>
+	<script type="text/javascript" src="{{STATIC_URL}}js/website/im.js"></script>
+{% endblock %}

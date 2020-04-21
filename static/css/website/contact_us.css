@@ -1,0 +1,82 @@
+
+.sidenav_2Wwh {
+    position: fixed;
+    padding: 0;
+    list-style: none;
+    width: 100px;
+    background: #fff;
+    margin-top: 4%;
+}
+.sidenav-list_1jv-.active_KY_h {
+    background-color: #f2f9ff;
+    color: #2184f1;
+}
+.sidenav-list_1jv- {
+    list-style: none;
+    color: #333;
+    font-size: 1.2rem;
+    height: 65px;
+    line-height: 65px;
+    border-bottom: 1px solid #f0f0f0;
+    text-align: center;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.content-right{
+    margin-left: 3%;
+}
+.sidenav-list_1jv- a {
+    vertical-align: middle;
+    display: block;
+}
+a {
+    text-decoration: none;
+    outline: none;
+    background-color: transparent;
+}
+.cc-content-wrapper_1jfg {
+    float: right;
+    width:83%;
+    /*min-height: 580px;*/
+    background: #FFFFFF;
+}
+.cf_175g:after {
+    content: "";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+.content_1sEZ section {
+    position: relative;
+    z-index: 1;
+}
+.sub-header_1xK8 {
+    font-size: 1.8rem;
+    color: #010101;
+    margin: 15px 0 0;
+    height: 45px;
+    border-bottom: 1px dotted rgba(0,0,0,.21);
+}
+.sub-header-title_2osj {
+    border-bottom: 2px solid #198be5;
+    padding-bottom: 14px;
+}
+.section_pad{
+    /*margin-top: 10%;*/
+}
+.paragraph_3PyV {
+    margin-bottom: 62px;
+}
+.word_NbXQ {
+    font-size: 1.1rem;
+    line-height: 1.8rem;
+    color: #535353;
+    letter-spacing: .7px;
+    text-align: justify;
+    padding-top: 2%;
+}
+#intro,#qualification,#safe,#good_teacher,#comment{
+    padding-top: 20px;
+}

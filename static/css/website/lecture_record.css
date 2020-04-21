@@ -1,0 +1,165 @@
+.all-cont{
+	max-width: 1200px;
+	margin: 0 auto;
+	width: 100%;
+	padding: 20px;
+}
+.v-cont{
+	width: 74.5%;
+	display: inline-block;
+	vertical-align: top;
+}
+.lecture{
+	width: 864px;
+	height: 486px;
+	background-color: red;
+}
+.c-info{
+	margin: 12px 0 0 ;
+	box-shadow: 1px 1px 6px 0 rgba(0,0,0,.1);
+}
+.intro{
+	padding: 20px;
+	width: 100%;
+}
+.c-title{
+	font-size: 20px;
+	color: #333;
+	letter-spacing: .13px;
+	margin: 10px;
+}
+.c-intro{
+	font-size: 15px;
+	color: #999;
+	margin: 10px;
+}
+.list-cont{
+	width: 22%;
+	margin-left: 25px;
+	box-shadow: 1px 1px 6px 0 rgba(0,0,0,.1);
+	background-color: #fff;
+	display: inline-block;
+}
+.list-top p{
+	margin: 0;
+	font-size: 14px;
+	line-height: 2.5;
+	color: #333;
+}
+.l-cont{
+	padding: 3px 14px 12px 0;
+	border-bottom: 1px solid #ededed;
+	position: relative;
+	overflow: hidden;
+}
+.l-img{
+	width: 68px;
+	height: 68px;
+	float: left;
+	margin-left: 12px;
+	cursor: pointer;
+	background-color: red;
+}
+.l-intro{
+	float: left;
+	margin-left: 10px;
+}
+.l-title{
+	margin-bottom: 4px;
+    font-size: 14px;
+    line-height: 1.43;
+    color: #333;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    cursor: pointer;
+}
+.l-introduction{
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    vertical-align: middle;
+    font-size: 12px;
+    line-height: 1.33;
+    color: #999;
+}
+.l-introduction{
+    letter-spacing: 1px;
+}
+.l-num{
+	margin-top: 9px;
+    height: 27px;
+    font-size: 12px;
+    line-height: 27px;
+    color: #999;
+}
+.add{
+	float: right;
+	display: inline-block;
+	margin-top: 40px;
+}
+.add-info{
+	border-radius: 50px;
+    border: 1px solid #ededed;
+    color: #198be5;
+    font-size: 12px;
+    height: 24px;
+    line-height: 22px;
+    padding: 0 8px;
+    cursor: pointer;
+}
+.list-class{
+	max-height: 490px;
+}
+.list-class ul{
+	list-style-type: none;
+	padding: 0 0 0 10px;
+	margin: 0;
+}
+.list-class ul li{
+	padding: 5px 0;
+    border-bottom: 1px solid #ededed;
+}
+.li-cont{
+	padding: 5px;
+	overflow: hidden;
+}
+.backon{
+	width: 28px;
+	height: 15px;
+	line-height: 15px;
+	font-size: 10px;
+	text-align: center;
+	background-color: #2a8ce4;
+	float: left;
+	color: #fff;
+}
+.b-right p{
+	margin: 0;
+	font-size: 13px;
+    line-height: 1.4;
+    height: 16px;
+    color: #333;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    vertical-align: top;
+}
+.active{
+	color: #ccc;
+}
+.l-introduction{
+	margin-top: 6px;
+    font-size: 12px;
+    line-height: 14px;
+    color: #999;
+}
+.l-introduction{
+    white-space: normal;
+}
+.active .backon{
+	background-color: #ccc;
+}
+.active .b-right p,.active .b-right .l-introduction{
+	color: #ccc !important;
+}

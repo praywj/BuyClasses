@@ -1,0 +1,306 @@
+body{
+	position: relative;
+	overflow-: hidden;
+}
+.class-choose{
+    width: 67.5%;
+    /*margin: 0 auto;*/
+	margin-left: 17.2%;
+}
+.title{
+	width: 100%;
+	padding: 30px 0;
+}
+.title h2{
+	text-align: center;
+	color: #212121;
+	text-transform: uppercase;
+	font-size: 2em;
+}
+.class-wrap{
+    width: 100%;
+	overflow: hidden;
+	/*margin: 30px auto 80px;*/
+}
+.order-list{
+    width:100%;
+	margin: 0 auto;
+
+    /*clear: both;*/
+}
+.order-list th{
+	height: 48px;
+	/*line-height: 48px;*/
+	background-color: #f3f3f3;
+	font-size: 1em;
+	font-weight: bold;
+	color: #666;
+    /*clear: both;*/
+}
+.order-list tbody tr{
+	background-color: #eff7ff;
+	/*line-height: 48px;*/
+	height: 48px;
+	color: #333;
+    font-size: 1em;
+	border-bottom: 1px solid #f3f3f3;
+    clear: both;
+}
+.on{
+	background-color: #b6d6e2 !important;
+}
+/*.all-check{*/
+	/*width: 82px;*/
+/*}*/
+.goods{
+	/*width: 580px;*/
+	text-align: center;
+	/*padding-left: 77px;*/
+}
+.quantity,.orin-cost,.now-cost,.operate,.number,.op,.np,.delete,.price{
+	/*width: 110px;*/
+	text-align: left;
+
+}
+.lesson{
+	/*width: 580px;*/
+	text-align: left;
+	/*padding-left: 75px;*/
+}
+.lesson a{
+	color: #333;
+}
+.all-check input,.check-buy input,.fl input{
+	width: 14px;
+	height: 14px;
+	border: 1px solid #f3f3f3;
+	margin-left: 12px;
+	vertical-align: text-top;
+	margin-top: 2px;
+}
+.all-check span,.fl span{
+	display: inline;
+}
+.op{
+	color: #999 !important;
+}
+.btn-wrap{
+	height: 46px;
+	/*line-height: 46px;*/
+    font-size: 1vw;
+
+	background-color: #f3f3f3 !important;
+	font-weight: bold;
+}
+.space{
+    height: 48px;
+}
+.goods-num,.total-price{
+	color: #ff0000;
+	display: inline-block;
+	padding: 0 5px;
+}
+.cal{
+	width: 160px;
+}
+.all{
+    width: 160px;
+}
+.go_pay_com input{
+	color: white;
+	letter-spacing: 4px;
+	font-weight: bold;
+	background-color: #099bff;
+	border: none;
+	margin-left: 90px;
+}
+
+/*遮罩层*/
+#mask{
+	background: #000;
+    filter: alpha(opacity=50); /* IE的透明度 */
+    opacity: 0.5;
+    display: none;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    z-index: 100;
+    display:none;
+}
+#tellus{
+	background: #ffffff;
+	display: none;
+	width: 40%;
+	height: 50%;
+	z-index: 1000;
+	position: fixed;
+}
+.service-title{
+	height: 40px;
+	background: #099bff;
+	line-height: 40px;
+	color: #ffffff;
+	font-size: 20px;
+	padding-left: 20px;
+}
+.service-intro{
+	height: 73%;
+	overflow-y: auto;
+}
+.service-intro p{
+	padding: 5px 0;
+	margin: 0;
+	text-align: center;
+	font-size: 15px;
+}
+.service-text{
+	font-size: 15px;
+	padding: 0 15px;
+}
+.service-btns{
+	height: 50px;
+}
+.service-check{
+	display: inline-block;
+	font-size: 12px;
+	padding-left: 15px;
+	cursor: pointer;
+}
+.service-check input{
+	width: 16px;
+	height: 16px;
+	margin-right: 5px;
+	vertical-align: text-bottom;
+}
+.service-check span{
+	line-height: 50px;
+	color: #099bff;
+	font-size: 12px;
+}
+.pay-btn{
+	display: inline-block;
+	margin-left: 27%;
+}
+.pay-btn a{
+	width: auto;
+    height: 36px;
+    line-height: 36px;
+    border-radius: 2px;
+	padding: 5px 22px;
+	font-size: 16px;
+	vertical-align: middle;
+	cursor: pointer;
+	margin-left: 10px;
+}
+.pay-btn .pay:hover{
+	text-decoration: none;
+	color: #999;
+}
+.pay-btn .del:hover{
+	text-decoration: none;
+	color: #3a3a3a;
+}
+.pay{
+	background: #e3e3e3;
+	color: #999;
+}
+.pay-on{
+	background: #099bff;
+    color: #fff;
+}
+.pay-on:hover{
+    color: #fff;
+	text-decoration: none;
+}
+.del{
+	background-color: #f3f3f3;
+	border: 1px solid #D9D9D9;
+	color: #3a3a3a;
+}
+@media(max-width: 1024px){
+	#tellus{
+		width: 45%;
+		height: 35%;
+	}
+}
+@media (max-width: 768px) {
+	#tellus{
+		width: 70%;
+		height: 50%;
+	}
+}
+@media (max-width: 480px) {
+	#tellus{
+		width: 80%;
+		top: 20% !important;
+	}
+	.pay-btn a{
+		padding: 5px 6px;
+	}
+	.pay-btn{
+		margin-left: 6%;
+	}
+}
+@media (max-width: 375px){
+	#tellus{
+		width: 90%;
+		top: 20%;
+	}
+	.pay-btn a{
+		padding: 1px 8px;
+	}
+}
+@media (max-width: 320px){
+	#tellus{
+		height: 60%;
+		top: 20% !important;
+	}
+	.service-check{
+		padding-left: 10px;
+	}
+	.pay-btn{
+		margin-left: 0;
+	}
+	.pay-btn a{
+		margin-left: 5px;
+		padding: 3px 10px;
+		font-size: 14px;
+	}
+}
+
+.lesson span{
+	color: red;
+}
+.is_pur{
+	display: none;
+}
+.go_pay_class{
+	display: inline;
+}
+.del_op{
+	display: inline-block;
+	width: 80px;
+}
+.row_price{
+	padding-left: 90px;
+}
+@media (min-width: 768px) {
+	.row_price{
+		padding-left: 110px !important;
+	}
+	.go_pay_class{
+		margin-left: 62px;
+	}
+	.del_op{
+		width: 100px !important;
+	}
+
+}
+@media (max-width: 1450px) and (min-width: 1350px){
+    .go-pay input{
+        margin-left: 0px !important;
+    }
+}
+

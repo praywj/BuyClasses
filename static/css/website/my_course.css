@@ -1,0 +1,86 @@
+@media (max-width: 930px) {
+    .m-contain{
+        width: 90%;
+        margin: 88px auto 2em auto;
+    }
+    .course-info{
+        background: #ffffff;
+        border: #cccccc solid 1px;
+        margin: 1em 0;
+        border-radius: 8px;
+    }
+    .course-info h4{
+        font-weight: bold;
+        padding-left: 10px;
+        font-size: 20px;
+    }
+    .course-intro{
+        padding: 1px 5px 10px 5px;
+    }
+    .course-img{
+        width: 30%;
+        display: inline-block;
+        vertical-align: top;
+    }
+    .course-img img{
+        width: 100%;
+    }
+    .course-title{
+        width: 43%;
+        display: inline-block;
+        vertical-align: top;
+        line-height: 30px;
+        font-size: 17px;
+    }
+    .course-btn{
+        width: 20%;
+        display: inline-block;
+        border: 1px solid #717171;
+        border-radius: 15px;
+        padding: 5px;
+        margin-top: 5%;
+        text-align: center;
+    }
+    .course-btn a{
+        color: #666;
+        font-size: 16px;
+        font-weight: bold;
+    }
+}
+@media (max-width: 480px) {
+    .course-info h4{
+        font-size: 16px;
+    }
+    .course-title{
+        font-size: 14px;
+        line-height: normal;
+    }
+    .course-btn{
+        padding: 3px 5px;
+        margin-top: 0;
+    }
+    .course-btn a{
+        font-size: 13px;
+        font-weight: normal;
+    }
+}
+
+@media (max-width: 360px) {
+    .course-title{
+        width: 40%;
+    }
+    .course-btn{
+        width: 22%;
+    }
+}
+@media (max-width: 320px) {
+    .course-info h4{
+        font-size: 14px;
+    }
+    .course-title{
+        font-size: 13px;
+    }
+    .course-btn{
+        padding: 3px;
+    }
+}
